@@ -1,15 +1,15 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useMemo } from 'react';
 
 const MenuContext = createContext(1);
 
 const MenuProvider = (props) => {
-  const { children } = props;
-
   const [menu, setMenu] = useState(1);
 
+  const providerValue = useMemo(() => ({ menu, setMenu }), [menu]);
+
   return (
-    <MenuContext.Provider value={{ menu, setMenu }}>
-      {children}
+    <MenuContext.Provider value={providerValue}>
+      {props.children}
     </MenuContext.Provider>
   );
 };

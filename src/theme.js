@@ -1,4 +1,6 @@
-const theme = {
+import { THEME_MODES } from './utils/constants'
+
+const lightTheme = {
   palette: {
     primary: {
       main: '#6B63C7',
@@ -14,6 +16,14 @@ const theme = {
       textTransform: 'none'
     }
   }
+};
+
+const theme = (mode) => {
+  if (mode === THEME_MODES.light) {
+    return lightTheme;
+  }
+
+  return lightTheme;
 };
 
 export default theme;

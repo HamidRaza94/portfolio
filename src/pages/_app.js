@@ -1,12 +1,13 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import theme from '../theme';
+import { MenuProvider } from '@/contexts/MenuContext';
+import { ThemeModeProvider } from '@/contexts/ThemeModeContext';
 import '@/styles/globals.scss'
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={createTheme(theme)}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ThemeModeProvider>
+      <MenuProvider>
+        <Component {...pageProps} />
+      </MenuProvider>
+    </ThemeModeProvider>
   );
 }
