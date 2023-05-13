@@ -12,7 +12,7 @@ import Logo from '@/components/logo';
 import Menus from './Menus';
 
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuClose = () => {
     setIsMenuOpen(!isMenuOpen);
