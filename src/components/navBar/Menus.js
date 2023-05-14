@@ -11,6 +11,7 @@ import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined';
 
 import MenuContext from '@/contexts/MenuContext';
+
 import MenuItem from './MenuItem';
 
 const menuItems = [
