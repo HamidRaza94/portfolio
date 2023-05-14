@@ -30,18 +30,26 @@ const NavBar = () => {
 
   return (
     <>
-      <AppBar position="fixed" color="white" sx={{ top: 'auto', bottom: 0 }}>
+      <AppBar
+        position="fixed"
+        color="white"
+        sx={{
+          top: 'auto',
+          bottom: 0,
+          backgroundColor: theme => theme.navBar.backgroundColor,
+        }}
+      >
         <Toolbar>
           <Logo />
           <IconButton
-            color="primary"
+            sx={{ color: theme => theme.navBar.color }}
             aria-label="toggle theme"
             onClick={toggleThemeMode}
           >
             <ThemeModeIcon />
           </IconButton>
           <IconButton
-            color="primary"
+            sx={{ color: theme => theme.navBar.color }}
             aria-label="open drawer"
             onClick={() => setIsMenuOpen(true)}
           >
@@ -55,7 +63,10 @@ const NavBar = () => {
         onClose={handleMenuClose}
         PaperProps={{
           square: false,
-          sx: { borderRadius: '5px 5px 0 0' }
+          sx: {
+            borderRadius: '5px 5px 0 0',
+            backgroundColor: (theme) => theme.menu.backgroundColor,
+          }
         }}
       >
         <Menus closeMenu={handleMenuClose} />

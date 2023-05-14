@@ -1,29 +1,56 @@
 import { THEME_MODES } from './utils/constants'
 
-const lightTheme = {
+const PRIMARY_COLOR = '#6B63C7';
+const WHITE_COLOR = '#FFFFFF';
+const BLACK_COLOR = '#000000';
+const DARK_GREY_COLOR = '#656565';
+const LIGHT_GREY_COLOR = '#E9E9E9';
+
+const basicTheme = {
   palette: {
     primary: {
-      main: '#6B63C7',
+      main: PRIMARY_COLOR,
     },
-    white: '#FFFFFF',
+    white: WHITE_COLOR,
     black: {
-      main: '#000000',
+      main: BLACK_COLOR,
     },
-    grey: '#E9E9E9',
+    lightGrey: LIGHT_GREY_COLOR,
+    grey: DARK_GREY_COLOR,
   },
   typography: {
     button: {
       textTransform: 'none'
     }
-  }
+  },
 };
 
-const theme = (mode) => {
-  if (mode === THEME_MODES.light) {
-    return lightTheme;
-  }
-
-  return lightTheme;
+const lightTheme = {
+  ...basicTheme,
+  navBar: {
+    color: PRIMARY_COLOR,
+    backgroundColor: WHITE_COLOR,
+  },
+  menu: {
+    backgroundColor: WHITE_COLOR,
+    selectedMenu: LIGHT_GREY_COLOR,
+    text: BLACK_COLOR,
+  },
 };
+
+const darkTheme = {
+  ...basicTheme,
+  navBar: {
+    color: WHITE_COLOR,
+    backgroundColor: DARK_GREY_COLOR,
+  },
+  menu: {
+    backgroundColor: DARK_GREY_COLOR,
+    selectedMenu: WHITE_COLOR,
+    text: WHITE_COLOR,
+  },
+};
+
+const theme = mode => mode === THEME_MODES.light ? lightTheme : darkTheme;
 
 export default theme;

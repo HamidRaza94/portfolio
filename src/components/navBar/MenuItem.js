@@ -12,7 +12,8 @@ const MenuItem = (props) => {
       sx={{
         margin: 0,
         padding: 0,
-        backgroundColor: (theme) => selected ? theme.palette.grey : 'none'
+        backgroundColor: (theme) => selected ? theme.menu.selectedMenu : 'none',
+        color: (theme) => selected ? theme.palette.white.main : theme.menu.text,
       }}
       onClick={() => handleClick(id)}
     >
