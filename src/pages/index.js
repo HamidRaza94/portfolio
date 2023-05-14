@@ -1,7 +1,9 @@
 import { useMemo, useContext } from 'react';
 import Head from 'next/head'
+import { Nunito } from 'next/font/google';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Container from '@mui/material/Container';
 
 import NavBar from '@/components/navBar';
 
@@ -19,6 +21,8 @@ import ThemeModeContext from '@/contexts/ThemeModeContext';
 import SectionRefContext from '@/contexts/SectionRefContext';
 
 import theme from '../theme';
+
+const inter = Nunito({ subsets: ['latin'] });
 
 export default function HomeApp() {
   const { themeMode } = useContext(ThemeModeContext);
@@ -43,7 +47,15 @@ export default function HomeApp() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className={inter.className}>
+        <Container
+          maxWidth="sm"
+          sx={{
+            margin: 0,
+            padding: '0 1rem 0 1rem',
+            backgroundColor: theme => theme.app.backgroundColor,
+          }}
+        >
         <section className={styles['max-height']} ref={home}>
           <Home />
         </section>
@@ -75,6 +87,7 @@ export default function HomeApp() {
         <section className={styles['max-height']} ref={contactMe}>
           <ContactMe />
         </section>
+        </Container>
       </main>
       <NavBar />
     </ThemeProvider>

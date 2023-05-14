@@ -2,7 +2,7 @@ import { MenuProvider } from '@/contexts/MenuContext';
 import { ThemeModeProvider } from '@/contexts/ThemeModeContext';
 import { SectionRefProvider } from '@/contexts/SectionRefContext';
 
-import '@/styles/globals.scss'
+import '@/styles/global.scss';
 
 export default function App({ Component, pageProps }) {
   return (
