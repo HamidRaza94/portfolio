@@ -26,6 +26,7 @@ const basicTheme = {
     },
     fontFamily: "Nunito, Roboto, sans-serif"
   },
+  button: {},
 };
 
 const lightTheme = {

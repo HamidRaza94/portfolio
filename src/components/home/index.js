@@ -2,6 +2,9 @@ import Image from 'next/image';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@/components/button';
 
 const Home = () => {
   return (
@@ -42,11 +45,15 @@ const Home = () => {
               Full stack developer | MERN
             </Typography>
           </Grid>
-          <Grid item>
-            
+          <Grid item sx={{ marginTop: 3 }}>
+            <Typography variant="p">
+              Passionate programmer with a knack for learning new languages, producing quality work.
+            </Typography>
           </Grid>
-          <Grid item>
-            
+        </Grid>
+        <Grid container flexDirection="column" sx={{ marginTop: '1rem' }}>
+          <Grid item alignContent="flex-start">
+            <Button>Contact Me</Button>
           </Grid>
         </Grid>
       </Grid>
