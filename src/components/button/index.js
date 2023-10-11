@@ -1,10 +1,10 @@
-// import Btn from '@mui/material/Button';
+import classNames from 'classnames';
 
 const Button = (props) => {
-  const { children } = props;
+  const { children, noPadding, css } = props;
 
   return (
-    <button style={{ padding: 15 }}>
+    <button className={classNames(noPadding ? 'p-0' : 'p-4', css)}>
       {children}
     </button>
   );

@@ -1,14 +1,13 @@
 import { useContext, useState } from 'react';
-import Image from 'next/image';
 import classNames from 'classnames';
 
 import Drawer from '@/components/drawer';
-import Menu from '@/components/Menu';
+import Menu from '@/components/menu';
 
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import LightModeIcon from '@/assets/icons/light-mode.svg';
 import DarkModeIcon from '@/assets/icons/dark-mode.svg';
-import AppIcon from '@/assets/icons/apps.svg?url';
+import AppIcon from '@/assets/icons/apps.svg';
 import { THEME_MODES } from '@/utils/constants';
 
 const NavBar = () => {
@@ -24,25 +23,14 @@ const NavBar = () => {
         <div className={classNames('flex justify-center')}>
           {themeMode === THEME_MODES.light ? (
             <div style={{ width: 24, height: 24 }}>
-              <LightModeIcon
-                // className="mr-1 fill-black"
-                onClick={() => toggleThemeMode()}
-              />
+              <LightModeIcon onClick={() => toggleThemeMode()} />
             </div>
-          ) : (
-            <DarkModeIcon
-              // className="mr-1 fill-white"
-              onClick={() => toggleThemeMode()}
-            />
-          )}
-          <AppIcon
-            onClick={() => setClicked(!clicked)}
-          />
-          {/* <Image src={AppIcon} width={24} height={24} alt="Application Menu" /> */}
+          ) : <DarkModeIcon onClick={() => toggleThemeMode()} />}
+          <AppIcon onClick={() => setClicked(!clicked)} />
         </div>
       </div>
       <Drawer open={clicked}>
-        <Menu />
+        <Menu closeMenu={() => setClicked(false)} />
       </Drawer>
     </nav>
   );
