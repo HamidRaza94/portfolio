@@ -4,6 +4,12 @@ import { Nunito } from 'next/font/google';
 import NavBar from '@/components/navBar';
 import HomePage from '@/components/home';
 import AboutMePage from '@/components/aboutMe';
+import SkillsPage from '@/components/skills';
+import ExperiencePage from '@/components/experience';
+import EducationPage from '@/components/education';
+import AbilityPage from '@/components/ability';
+import ProjectsPage from '@/components/projects';
+import ContactMePage from '@/components/contactMe';
 
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import SectionRefContext from '@/contexts/SectionRefContext';
@@ -13,7 +19,16 @@ import { useContext, useEffect } from 'react';
 
 export default function HomeApp() {
   const { darkThemeMode } = useContext(ThemeModeContext);
-  const { home, aboutMe } = useContext(SectionRefContext);
+  const {
+    home,
+    aboutMe,
+    skills,
+    experience,
+    education,
+    ability,
+    projects,
+    contactMe,
+  } = useContext(SectionRefContext);
 
   useEffect(() => {
     if (darkThemeMode) {
@@ -38,6 +53,30 @@ export default function HomeApp() {
 
         <section ref={aboutMe}>
           <AboutMePage />
+        </section>
+
+        <section ref={skills}>
+          <SkillsPage />
+        </section>
+
+        <section ref={experience}>
+          <ExperiencePage />
+        </section>
+
+        <section ref={education}>
+          <EducationPage />
+        </section>
+
+        <section ref={ability}>
+          <AbilityPage />
+        </section>
+
+        <section ref={projects}>
+          <ProjectsPage />
+        </section>
+
+        <section ref={contactMe}>
+          <ContactMePage />
         </section>
       </main>
       <NavBar />

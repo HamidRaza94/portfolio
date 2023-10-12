@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import Button from '@/components/button';
 import RightIcon from '@/assets/icons/right.svg';
 
+// h-[calc(100vh-48px)]
 const Home = () => {
   return (
-    <div className={classNames('h-[calc(100vh-48px)] flex flex-col p-2')}>
+    <div className={classNames('h-screen flex flex-col p-2')}>
       <div className={classNames('flex flex-col items-center')}>
         <Image
           src='/dp1.jpg'
