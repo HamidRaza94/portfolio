@@ -5,7 +5,14 @@ const MenuItem = (props) => {
 
   return (
     <div
-      className={classNames('flex flex-col items-center')}
+      className={classNames(
+        'flex flex-col items-center rounded-lg',
+        {
+          'text-black': selected,
+          'bg-light-grey': selected,
+          'dark:bg-light-grey': selected,
+        },
+      )}
       onClick={() => handleClick(id)}
     >
       <Icon />

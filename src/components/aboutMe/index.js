@@ -1,6 +1,10 @@
+import classNames from 'classnames';
+
 const AboutMe = () => {
   return (
-    <h1>About Me</h1>
+    <div className={classNames('h-[calc(100vh)]')}>
+      About Me Page
+    </div>
   );
 }
 

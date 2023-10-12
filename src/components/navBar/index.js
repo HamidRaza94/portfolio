@@ -11,7 +11,7 @@ import AppIcon from '@/assets/icons/apps.svg';
 import { THEME_MODES } from '@/utils/constants';
 
 const NavBar = () => {
-  const [clicked, setClicked] = useState(true);
+  const [menuOpened, setMenuOpened] = useState(false);
   const { themeMode, toggleThemeMode } = useContext(ThemeModeContext);
 
   const getLogoName = () => '<Hamid />';
@@ -26,11 +26,13 @@ const NavBar = () => {
               <LightModeIcon onClick={() => toggleThemeMode()} />
             </div>
           ) : <DarkModeIcon onClick={() => toggleThemeMode()} />}
-          <AppIcon onClick={() => setClicked(!clicked)} />
+          <div className={classNames('ml-2')}>
+            <AppIcon onClick={() => setMenuOpened(!menuOpened)} />
+          </div>
         </div>
       </div>
-      <Drawer open={clicked}>
-        <Menu closeMenu={() => setClicked(false)} />
+      <Drawer open={menuOpened}>
+        <Menu closeMenu={() => setMenuOpened(false)} />
       </Drawer>
     </nav>
   );
