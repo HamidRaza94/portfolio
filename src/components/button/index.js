@@ -1,10 +1,17 @@
 import classNames from 'classnames';
 
 const Button = (props) => {
-  const { children, noPadding, css } = props;
+  const { children, primary, noPadding, css } = props;
 
   return (
-    <button className={classNames(noPadding ? 'p-0' : 'p-4', css)}>
+    <button
+      className={classNames(
+        'rounded-lg',
+        noPadding ? 'p-0' : 'p-4',
+        { 'bg-primary': primary, 'text-white': primary },
+        css,
+      )}
+    >
       {children}
     </button>
   );
