@@ -14,8 +14,12 @@ const AboutMe = () => {
     <div className={classNames('h-screen flex flex-col p-2')}>
       <div className={classNames('flex justify-center')}>
         <div className={classNames('grid grid-cols-1 items-center mr-4')}>
-          <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
-          <LinkedInIcon className={classNames('dark:text-white dark:fill-white')} />
+          <a href="https://github.com/HamidRaza94" target='_blank'>
+            <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
+          </a>
+          <a href="https://www.linkedin.com/in/mohammad-hamid-raza-4b6a82152" target='_blank'>
+            <LinkedInIcon className={classNames('dark:text-white dark:fill-white')} />
+          </a>
           <FacebookIcon className={classNames('dark:text-white dark:fill-white')} />
           <InstagramIcon className={classNames('dark:text-white dark:fill-white')} />
           <TwitterIcon className={classNames('dark:text-white dark:fill-white')} />
@@ -31,12 +35,19 @@ const AboutMe = () => {
 
       <div className={classNames('flex justify-between items-center my-4')}>
         <h1 className={classNames('text-2xl dark:text-gray-300')}>About me</h1>
-        <Button primary css={classNames('p-1.5')}>
-          <div className={classNames('flex items-center')}>
-            Get Resume&nbsp;
-            <DownloadIcon />
-          </div>
-        </Button>
+        <a
+          href="/resume.pdf"
+          download="Mohammad Hamid Raza's Resume"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button primary css={classNames('p-1.5')}>
+            <div className={classNames('flex items-center')}>
+              Get Resume&nbsp;
+              <DownloadIcon />
+            </div>
+          </Button>
+        </a>
       </div>
 
       <p className={classNames('text-xl dark:text-gray-300')}>
