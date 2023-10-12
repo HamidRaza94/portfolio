@@ -16,12 +16,12 @@ const Home = () => {
           className={classNames('rounded-full w-64 h-72')}
         />
         <br />
-        <h1 className={classNames('text-2xl font-semibold')}>Hi, I am</h1>
-        <h1 className={classNames('text-2xl font-semibold')}>Mohammad Hamid Raza</h1>
-        <h2 className={classNames('text-gray-400')}>Full stack developer | MERN</h2>
+        <h1 className={classNames('text-2xl font-semibold dark:text-white')}>Hi, I am</h1>
+        <h1 className={classNames('text-2xl font-semibold dark:text-white')}>Mohammad Hamid Raza</h1>
+        <h2 className={classNames('text-lg text-gray-400')}>Full stack developer | MERN</h2>
       </div>
       <div className={classNames('p-2')}>
-        <p>Passionate programmer with a knack for learning new languages, producing quality work.</p>
+        <p className={classNames('text-xl dark:text-white')}>Passionate programmer with a knack for learning new languages, producing quality work.</p>
         <br />
         <Button primary>
           <div className={classNames('flex')}>
