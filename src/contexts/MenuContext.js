@@ -37,14 +37,17 @@ const MenuProvider = (props) => {
     }
 
     mapping[menu || 1]();
-  }, [menu, homeScroll,
+  }, [
+    menu,
+    homeScroll,
     aboutMeScroll,
     skillsScroll,
     experienceScroll,
     educationScroll,
     abilityScroll,
     projectsScroll,
-    contactMeScroll,]);
+    contactMeScroll,
+  ]);
 
   const providerValue = useMemo(() => ({ menu, setMenu }), [menu]);
 

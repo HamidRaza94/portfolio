@@ -24,7 +24,7 @@ const Home = () => {
         <p className={classNames('text-xl dark:text-gray-300')}>Passionate programmer with a knack for learning new languages, producing quality work.</p>
         <br />
         <Button primary>
-          <div className={classNames('flex')}>
+          <div className={classNames('flex items-center')}>
             Contact Me
             <RightIcon />
           </div>
