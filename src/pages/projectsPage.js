@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 
-const Projects = () => {
+const Projects = (_, ref) => {
   return (
     <div className={classNames('h-screen')}>
       Projects Page
@@ -8,4 +9,4 @@ const Projects = () => {
   );
 }
 
-export default Projects;
+export default forwardRef(Projects);

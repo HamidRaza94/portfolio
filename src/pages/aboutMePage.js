@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
@@ -9,7 +10,7 @@ import InstagramIcon from '@/assets/icons/instagram.svg';
 import TwitterIcon from '@/assets/icons/twitter.svg';
 import DownloadIcon from '@/assets/icons/download.svg';
 
-const AboutMe = () => {
+const AboutMe = (_, ref) => {
   return (
     <div className={classNames('h-screen flex flex-col p-2')}>
       <div className={classNames('flex justify-center')}>
@@ -34,7 +35,7 @@ const AboutMe = () => {
       </div>
 
       <div className={classNames('flex justify-between items-center my-4')}>
-        <h1 className={classNames('text-2xl dark:text-gray-300')}>About me</h1>
+        <h1 ref={ref} className={classNames('text-2xl dark:text-gray-300')}>About me</h1>
         <a
           href="/resume.pdf"
           download="Mohammad Hamid Raza's Resume"
@@ -60,4 +61,4 @@ const AboutMe = () => {
   );
 }
 
-export default AboutMe;
+export default forwardRef(AboutMe);

@@ -5,24 +5,24 @@ import useScroll from '@/hooks/useScroll';
 const SectionRefContext = createContext(null);
 
 const SectionRefProvider = (props) => {
-  const [home, homeScroll] = useScroll();
-  const [aboutMe, aboutMeScroll] = useScroll();
-  const [skills, skillsScroll] = useScroll();
-  const [experience, experienceScroll] = useScroll();
-  const [education, educationScroll] = useScroll();
-  const [ability, abilityScroll] = useScroll();
-  const [projects, projectsScroll] = useScroll();
-  const [contactMe, contactMeScroll] = useScroll();
+  const [homeRef, homeScroll] = useScroll();
+  const [aboutMeRef, aboutMeScroll] = useScroll();
+  const [skillsRef, skillsScroll] = useScroll();
+  const [experienceRef, experienceScroll] = useScroll();
+  const [educationRef, educationScroll] = useScroll();
+  const [abilityRef, abilityScroll] = useScroll();
+  const [projectsRef, projectsScroll] = useScroll();
+  const [contactMeRef, contactMeScroll] = useScroll();
 
   const providerValue = {
-    home, homeScroll,
-    aboutMe, aboutMeScroll,
-    skills, skillsScroll,
-    experience, experienceScroll,
-    education, educationScroll,
-    ability, abilityScroll,
-    projects, projectsScroll,
-    contactMe, contactMeScroll,
+    homeRef, homeScroll,
+    aboutMeRef, aboutMeScroll,
+    skillsRef, skillsScroll,
+    experienceRef, experienceScroll,
+    educationRef, educationScroll,
+    abilityRef, abilityScroll,
+    projectsRef, projectsScroll,
+    contactMeRef, contactMeScroll,
   };
 
   return (

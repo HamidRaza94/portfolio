@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 
-const Ability = () => {
+const Ability = (_, ref) => {
   return (
     <div className={classNames('h-screen')}>
       Ability Page
@@ -8,4 +9,4 @@ const Ability = () => {
   );
 }
 
-export default Ability;
+export default forwardRef(Ability);

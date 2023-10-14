@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 
-const ContactMe = () => {
+const ContactMe = (_, ref) => {
   return (
     <div className={classNames('h-screen')}>
       Contact Me Page
@@ -8,4 +9,4 @@ const ContactMe = () => {
   );
 }
 
-export default ContactMe;
+export default forwardRef(ContactMe);

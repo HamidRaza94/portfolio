@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 
-const Experience = () => {
+const Experience = (_, ref) => {
   return (
     <div className={classNames('h-screen')}>
       Experience Page
@@ -8,4 +9,4 @@ const Experience = () => {
   );
 }
 
-export default Experience;
+export default forwardRef(Experience);

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
@@ -5,7 +6,7 @@ import Button from '@/components/button';
 import RightIcon from '@/assets/icons/right.svg';
 
 // h-[calc(100vh-48px)]
-const Home = () => {
+const Home = (_, ref) => {
   return (
     <div className={classNames('h-screen flex flex-col p-2')}>
       <div className={classNames('flex flex-col items-center')}>
@@ -17,7 +18,7 @@ const Home = () => {
           className={classNames('w-48 h-52 dp-home')}
         />
         <br />
-        <h1 className={classNames('text-2xl font-semibold dark:text-gray-100')}>Hi, I am</h1>
+        <h1 ref={ref} className={classNames('text-2xl font-semibold dark:text-gray-100')}>Hi, I am</h1>
         <h1 className={classNames('text-2xl font-semibold dark:text-gray-100')}>Mohammad Hamid Raza</h1>
         <h2 className={classNames('text-lg text-gray-400')}>Full stack developer | MERN</h2>
       </div>
@@ -35,4 +36,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default forwardRef(Home);

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import Loader from '@/components/loader';
@@ -47,14 +48,14 @@ const accordionItems = [
   },
 ];
 
-const Skills = () => {
+const Skills = (_, ref) => {
   return (
     <div className={classNames('min-h-screen p-2')}>
-      <h1 className={classNames('text-2xl text-center dark:text-gray-300')}>Skills</h1>
+      <h1 ref={ref} className={classNames('text-2xl text-center dark:text-gray-300')}>Skills</h1>
 
       <Accordion items={accordionItems} />
     </div>
   );
 }
 
-export default Skills;
+export default forwardRef(Skills);
