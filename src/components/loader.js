@@ -5,7 +5,7 @@ const Loader = (props) => {
 
   return (
     <div>
-      <h3>{label}</h3>
+      <h3 className="dark:text-gray-300">{label}</h3>
       <div className={classNames('text-xs bg-white w-full h-4')}>
         <div
           className={classNames(`flex justify-center items-center text-white bg-primary h-4`)}

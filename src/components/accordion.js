@@ -33,7 +33,7 @@ const AccordionItem = (props) => {
   return (
     <div>
       <button
-        className="w-full text-left mt-3 text-xl flex justify-between items-center"
+        className="w-full text-left mt-3 text-xl flex justify-between items-center dark:text-gray-300"
         onClick={toggleAccordion}
       >
         <span>{title}</span>
