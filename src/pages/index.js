@@ -1,21 +1,19 @@
+import { useContext, useEffect } from 'react';
 import Head from 'next/head'
 import { Nunito } from 'next/font/google';
 
 import NavBar from '@/components/navBar';
-import HomePage from '@/components/home';
-import AboutMePage from '@/components/aboutMe';
-import SkillsPage from '@/components/skills';
-import ExperiencePage from '@/components/experience';
-import EducationPage from '@/components/education';
-import AbilityPage from '@/components/ability';
-import ProjectsPage from '@/components/projects';
-import ContactMePage from '@/components/contactMe';
-
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import SectionRefContext from '@/contexts/SectionRefContext';
 
-import styles from '@/styles/Home.module.scss';
-import { useContext, useEffect } from 'react';
+import HomePage from './homePage';
+import AboutMePage from './aboutMePage';
+import SkillsPage from './skillsPage';
+import ExperiencePage from './experiencePage';
+import EducationPage from './educationPage';
+import AbilityPage from './abilityPage';
+import ProjectsPage from './projectsPage';
+import ContactMePage from './contactMePage';
 
 export default function HomeApp() {
   const { darkThemeMode } = useContext(ThemeModeContext);
