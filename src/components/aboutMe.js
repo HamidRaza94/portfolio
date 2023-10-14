@@ -26,10 +26,10 @@ const AboutMe = () => {
         </div>
         <Image
           src='/dp1.jpg'
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           alt="Picture of the author"
-          className={classNames('rounded-full w-48 h-52')}
+          className={classNames('w-48 h-52 dp-about-me')}
         />
       </div>
 
@@ -41,7 +41,7 @@ const AboutMe = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <Button primary css={classNames('p-1.5')}>
+          <Button primary noPadding css="p-1.5">
             <div className={classNames('flex items-center')}>
               Get Resume&nbsp;
               <DownloadIcon />

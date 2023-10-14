@@ -11,10 +11,10 @@ const Home = () => {
       <div className={classNames('flex flex-col items-center')}>
         <Image
           src='/dp1.jpg'
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           alt="Picture of the author"
-          className={classNames('rounded-full w-64 h-72')}
+          className={classNames('w-48 h-52 dp-home')}
         />
         <br />
         <h1 className={classNames('text-2xl font-semibold dark:text-gray-100')}>Hi, I am</h1>
