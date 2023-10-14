@@ -12,6 +12,7 @@ const MenuContext = createContext(1);
 
 const MenuProvider = (props) => {
   const [menu, setMenu] = useState(1);
+  const [menuClicked, setMenuClicked] = useState(false);
 
   const {
     homeScroll,
@@ -36,9 +37,13 @@ const MenuProvider = (props) => {
       8: contactMeScroll,
     }
 
-    mapping[menu || 1]();
+    if (menuClicked) {
+      mapping[menu || 1]();
+      setMenuClicked(false);
+    }
   }, [
     menu,
+    menuClicked,
     homeScroll,
     aboutMeScroll,
     skillsScroll,
@@ -49,7 +54,12 @@ const MenuProvider = (props) => {
     contactMeScroll,
   ]);
 
-  const providerValue = useMemo(() => ({ menu, setMenu }), [menu]);
+  const providerValue = useMemo(() => ({
+    menu,
+    setMenu,
+    menuClicked,
+    setMenuClicked,
+  }), [menu, menuClicked]);
 
   return (
     <MenuContext.Provider value={providerValue}>

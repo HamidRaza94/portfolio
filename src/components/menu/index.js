@@ -9,9 +9,10 @@ import menus from './menus';
 const Menu = (props) => {
   const { closeMenu } = props;
 
-  const { menu, setMenu } = useContext(MenuContext);
+  const { menu, setMenu, setMenuClicked } = useContext(MenuContext);
 
   const handleClick = (id) => {
+    setMenuClicked(true);
     setMenu(id);
     closeMenu();
   };
