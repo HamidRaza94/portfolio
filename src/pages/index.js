@@ -79,36 +79,36 @@ export default function HomeApp() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform">
-        <section ref={homeRef}>
+      <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform p-2">
+        <section ref={homeRef} className="min-h-screen h-screen">
           <HomePage ref={homeViewRef}/>
         </section>
 
-        <section ref={aboutMeRef}>
+        <section ref={aboutMeRef} className="min-h-screen h-screen">
           <AboutMePage ref={aboutMeViewRef}/>
         </section>
 
-        <section ref={skillsRef}>
+        <section ref={skillsRef} className="min-h-screen h-screen">
           <SkillsPage ref={skillsViewRef}/>
         </section>
 
-        <section ref={experienceRef}>
+        <section ref={experienceRef} className="min-h-screen h-screen">
           <ExperiencePage ref={experienceViewRef}/>
         </section>
 
-        <section ref={educationRef}>
+        <section ref={educationRef} className="min-h-screen h-screen">
           <EducationPage ref={educationViewRef}/>
         </section>
 
-        <section ref={abilityRef}>
+        <section ref={abilityRef} className="min-h-screen h-screen">
           <AbilityPage ref={abilityViewRef}/>
         </section>
 
-        <section ref={projectsRef}>
+        <section ref={projectsRef} className="min-h-screen h-screen">
           <ProjectsPage ref={projectsViewRef}/>
         </section>
 
-        <section ref={contactMeRef}>
+        <section ref={contactMeRef} className="min-h-screen h-screen">
           <ContactMePage ref={contactMeViewRef}/>
         </section>
       </main>

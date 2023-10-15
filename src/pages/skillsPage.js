@@ -1,12 +1,11 @@
 import { forwardRef } from 'react';
-import classNames from 'classnames';
 
 import Loader from '@/components/loader';
 import Accordion from '@/components/accordion';
 
 const skillList = [
   {
-    title: 'Front end technologies',
+    title: 'Front-end technologies',
     content: (
       <>
         <Loader label="React JS" count={85} />
@@ -19,7 +18,7 @@ const skillList = [
     ),
   },
   {
-    title: 'Back end technologies',
+    title: 'Back-end technologies',
     content: (
       <>
         <Loader label="Node JS" count={80} />
@@ -70,8 +69,8 @@ const skillList = [
 
 const Skills = (_, ref) => {
   return (
-    <div className={classNames('min-h-screen p-2')}>
-      <h1 ref={ref} className={classNames('text-2xl text-center dark:text-gray-300')}>Skills</h1>
+    <div>
+      <h1 ref={ref} className="text-2xl text-center dark:text-gray-300">Skills</h1>
 
       <Accordion items={skillList} />
     </div>

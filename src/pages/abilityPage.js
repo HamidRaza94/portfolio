@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const Ability = (_, ref) => {
   return (
-    <div className={classNames('h-screen')}>
+    <div className={classNames('')}>
       Ability Page
     </div>
   );

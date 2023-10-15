@@ -8,7 +8,7 @@ import RightIcon from '@/assets/icons/right.svg';
 // h-[calc(100vh-48px)]
 const Home = (_, ref) => {
   return (
-    <div className={classNames('h-screen flex flex-col p-2')}>
+    <div className={classNames('flex flex-col')}>
       <div className={classNames('flex flex-col items-center')}>
         <Image
           src='/dp1.jpg'

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const Education = (_, ref) => {
   return (
-    <div className={classNames('h-screen')}>
+    <div className={classNames('')}>
       Education Page
     </div>
   );

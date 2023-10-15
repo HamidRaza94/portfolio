@@ -12,7 +12,7 @@ import DownloadIcon from '@/assets/icons/download.svg';
 
 const AboutMe = (_, ref) => {
   return (
-    <div className={classNames('h-screen flex flex-col p-2')}>
+    <div className={classNames('flex flex-col')}>
       <div className={classNames('flex justify-center')}>
         <div className={classNames('grid grid-cols-1 items-center mr-4')}>
           <a href="https://github.com/HamidRaza94" target='_blank'>

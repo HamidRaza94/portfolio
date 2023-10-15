@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const ContactMe = (_, ref) => {
   return (
-    <div className={classNames('h-screen')}>
+    <div className={classNames('')}>
       Contact Me Page
     </div>
   );
