@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Loader from '@/components/loader';
 import Accordion from '@/components/accordion';
 
-const accordionItems = [
+const skillList = [
   {
     title: 'Front end technologies',
     content: (
@@ -39,6 +39,26 @@ const accordionItems = [
       <>
         <Loader label="Jest" count={80} />
         <Loader label="Enzyme" count={80} />
+        <Loader label="Mocha" count={70} />
+        <Loader label="Chai" count={70} />
+      </>
+    ),
+  },
+  {
+    title: 'Project management tool',
+    content: (
+      <>
+        <Loader label="Jira" count={90} />
+        <Loader label="Redmine" count={80} />
+      </>
+    ),
+  },
+  {
+    title: 'Version control',
+    content: (
+      <>
+        <Loader label="GIT" count={80} />
+        <Loader label="BitBucket" count={75} />
       </>
     ),
   },
@@ -53,7 +73,7 @@ const Skills = (_, ref) => {
     <div className={classNames('min-h-screen p-2')}>
       <h1 ref={ref} className={classNames('text-2xl text-center dark:text-gray-300')}>Skills</h1>
 
-      <Accordion items={accordionItems} />
+      <Accordion items={skillList} />
     </div>
   );
 }
