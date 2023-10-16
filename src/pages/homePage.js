@@ -3,6 +3,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import Button from '@/components/button';
+import MyPhoto from '@/assets/images/myPhoto/dp1.jpg';
 import RightIcon from '@/assets/icons/right.svg';
 
 // h-[calc(100vh-48px)]
@@ -11,7 +12,7 @@ const Home = (_, ref) => {
     <div className={classNames('flex flex-col')}>
       <div className={classNames('flex flex-col items-center')}>
         <Image
-          src='/dp1.jpg'
+          src={MyPhoto}
           width={200}
           height={200}
           alt="Picture of the author"

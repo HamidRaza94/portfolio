@@ -1,5 +1,5 @@
 const JourneyBar = (props) => {
-  const { height = 40 } = props;
+  const { height = 36 } = props;
 
   return (
     <>

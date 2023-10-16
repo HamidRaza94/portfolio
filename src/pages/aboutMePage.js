@@ -3,6 +3,9 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import Button from '@/components/button';
+
+import MyPhoto from '@/assets/images/myPhoto/dp1.jpg';
+
 import GitHubIcon from '@/assets/icons/github.svg';
 import LinkedInIcon from '@/assets/icons/linkedin.svg';
 import FacebookIcon from '@/assets/icons/facebook.svg';
@@ -26,7 +29,7 @@ const AboutMe = (_, ref) => {
           <TwitterIcon className={classNames('dark:text-white dark:fill-white')} />
         </div>
         <Image
-          src='/dp1.jpg'
+          src={MyPhoto}
           width={200}
           height={200}
           alt="Picture of the author"
