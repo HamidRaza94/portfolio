@@ -155,7 +155,6 @@ const Experience = (_, ref) => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
