@@ -1,12 +1,9 @@
 import classNames from 'classnames';
 
 const Spacer = (props) => {
-  const { x, y } = props;
+  const { x = 1, y = 1 } = props;
 
-  const width = `w-${x}`;
-  const height = `h-${y}`;
-
-  return <div className={classNames({ [width]: x, [height]: y })}></div>;
+  return <div className={classNames({ [`w-${x}`]: x, [`h-${y}`]: y })}></div>;
 };
 
 export default Spacer;

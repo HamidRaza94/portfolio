@@ -42,33 +42,39 @@ const Experience = (_, ref) => {
             className="w-24 h-8"
           />
 
-          <Spacer y={32} />
+          {/* <Spacer y={32} /> */}
+          <div style={{ height: 128 }}></div>
 
           <div className="flex flex-col items-end mt-10">
             <div className="flex items-center">
               <Label text="technical analyst" size="text-xl" isBold />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <ProfileIcon color={isLightTheme ? '' : 'white'} />
             </div>
             <div className="flex items-center">
               <Label text="sept 2021 - mar 2023" isItalic isThin style="leading-5" />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <CalenderIcon fill={isLightTheme ? '' : 'white'} />
             </div>
             <div className="flex items-center">
               <Label text="done 1 project" isThin style="leading-5" />
               <ProjectsIcon color={isLightTheme ? '' : 'white'} />
             </div>
-            <Spacer y={2} />
+            {/* <Spacer y={2} /> */}
+            <div style={{ height: 8 }}></div>
 
             <div className="flex justify-start">
               <Logo img={ReactJSImage} alt="React JS Logo" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={ReduxJSImage} alt="Redux JS Logo" />
             </div>
           </div>
 
-          <Spacer y={5} />
+          {/* <Spacer y={5} /> */}
+          <div style={{ height: 20 }}></div>
 
           <Image
             src={SuccessiveCompanyImage}
@@ -77,7 +83,8 @@ const Experience = (_, ref) => {
           />
         </div>
 
-        <Spacer x={3} />
+        {/* <Spacer x={3} /> */}
+        <div style={{ width: 12 }}></div>
 
         <div className="flex flex-col items-center mt-2">
           <JourneyBar />
@@ -85,36 +92,43 @@ const Experience = (_, ref) => {
           <JourneyBar />
         </div>
 
-        <Spacer x={3} />
+        {/* <Spacer x={3} /> */}
+        <div style={{ width: 12 }}></div>
 
         <div className="flex flex-col items-start mt-8">
           <div>
             <div className="flex items-center">
               <ProfileIcon color={isLightTheme ? '' : 'white'} />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <Label text="senior engineer" size="text-xl" isBold />
             </div>
             <div className="flex items-center">
               <CalenderIcon fill={isLightTheme ? '' : 'white'} />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <Label text="mar 2023 - present" isItalic isThin style="leading-5" />
             </div>
             <div className="flex items-center">
               <ProjectsIcon color={isLightTheme ? '' : 'white'} />
               <Label text="done 2 projects" isThin style="leading-5" />
             </div>
-            <Spacer y={2} />
+            {/* <Spacer y={2} /> */}
+            <div style={{ height: 8 }}></div>
 
             <div className="flex justify-start">
               <Logo img={ReactJSImage} alt="React JS Logo" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={ReduxJSImage} alt="Redux JS Logo" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={AngularImage} alt="Angular JS" />
             </div>
           </div>
 
-          <Spacer y={8} />
+          {/* <Spacer y={8} /> */}
+          <div style={{ height: 32 }}></div>
 
           <Image
             src={isLightTheme ? IntersoftCompanyLightImage : IntersoftCompanyDarkImage}
@@ -122,17 +136,20 @@ const Experience = (_, ref) => {
             className="w-24 h-10"
           />
 
-          <Spacer y={36} />
+          {/* <Spacer y={36} /> */}
+          <div style={{ height: 144 }}></div>
 
           <div>
             <div className="flex items-center">
               <ProfileIcon color={isLightTheme ? '' : 'white'} />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <Label text="associate engineer" size="text-xl" isBold />
             </div>
             <div className="flex items-center">
               <CalenderIcon fill={isLightTheme ? '' : 'white'} />
-              <Spacer x={1} />
+              {/* <Spacer x={1} /> */}
+              <div style={{ width: 4 }}></div>
               <Label text="jan 2019 - sept 2021" isItalic isThin style="leading-5" />
             </div>
             <div className="flex items-center">
@@ -140,17 +157,22 @@ const Experience = (_, ref) => {
               <Label text="done 4 projects" isThin style="leading-5" />
             </div>
 
-            <Spacer y={2} />
+            {/* <Spacer y={2} /> */}
+            <div style={{ height: 8 }}></div>
 
             <div className="flex flex-wrap">
               <Logo img={ReactJSImage} alt="React JS Logo" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={GraphQLImage} alt="GraphQL JS" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={NodeJSImage} alt="Node JS" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={ExpressJSImage} alt="Express JS" />
-              <Spacer x={2} />
+              {/* <Spacer x={2} /> */}
+              <div style={{ width: 8 }}></div>
               <Logo img={MongoDBImage} alt="Mongo DB" />
             </div>
           </div>
