@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import PageHeading from '@/components/pageHeading';
@@ -7,6 +7,7 @@ import Label from '@/components/label';
 import Spacer from '@/components/spacer';
 import Button from '@/components/button';
 import Divider from '@/components/divider';
+import Modal from '@/components/modal';
 
 const PROJECT_LIST = [
   {
@@ -36,6 +37,8 @@ const PROJECT_LIST = [
 ];
 
 const Projects = (_, ref) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className={classNames('')}>
       <PageHeading label="Projects" ref={ref} />
@@ -52,12 +55,16 @@ const Projects = (_, ref) => {
             <Spacer size={10} axis="vertical" />
             <Label text={project.description} style="line-clamp-2 leading-none" />
             <Spacer size={10} axis="vertical" />
-            <Button primary css="px-2 py-1 rounded">Read more</Button>
+            <Button primary css="px-2 py-1 rounded" onClick={() => setShowModal(false)}>
+              Read more
+            </Button>
+
             <Spacer size={10} axis="vertical" />
             {(PROJECT_LIST.length - 1 !== index) && <Divider />}
           </div>
         </div>
       ))}
+      <Modal isOpen={showModal} closeModal={() => setShowModal(false)} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 const Button = (props) => {
-  const { children, primary, noPadding, css } = props;
+  const { children, primary, noPadding, css, ...rest } = props;
 
   return (
     <button
@@ -11,6 +11,7 @@ const Button = (props) => {
         { 'bg-primary': primary, 'text-white': primary },
         css,
       )}
+      {...rest}
     >
       {children}
     </button>
