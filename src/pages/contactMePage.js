@@ -38,8 +38,12 @@ const ContactMe = (_, ref) => {
     setQuery('');
   };
 
-  const handleSubmit = () => {
-    resetFields();
+  const handleSubmit = async () => {
+    const response = await fetch(`/api/send-email?name=${name}&email=${email}&query=${query}`);
+
+    if (response.ok) {
+      resetFields();
+    }
   };
 
   return (

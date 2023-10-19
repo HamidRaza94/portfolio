@@ -6,24 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview-email": "email dev"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
+    "@react-email/container": "0.0.8",
+    "@react-email/html": "0.0.4",
+    "@react-email/section": "0.0.9",
+    "@react-email/text": "0.0.5",
     "classnames": "^2.3.2",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "install": "^0.13.0",
     "next": "13.2.4",
+    "nodemailer": "^6.9.6",
     "npm": "^9.6.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "1.9.5",
     "react-intersection-observer": "^9.5.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
+    "@types/nodemailer": "^6.4.13",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
     "sass": "^1.60.0",
