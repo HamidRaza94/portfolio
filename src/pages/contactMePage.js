@@ -9,6 +9,7 @@ import Label from '@/components/label';
 import Spacer from '@/components/spacer';
 import { THEME_MODES } from '@/utils/constants';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
+import { isValidName, isValidEmail } from '@/utils/helper';
 
 import PhoneCallIcon from '@/assets/icons/phone-call.svg';
 import AtSignIcon from '@/assets/icons/at-sign.svg';
@@ -18,10 +19,15 @@ import FacebookIcon from '@/assets/icons/facebook.svg';
 import InstagramIcon from '@/assets/icons/instagram.svg';
 import TwitterIcon from '@/assets/icons/twitter.svg';
 
+const defaultError = { name: '', email: '', query: '' };
+
 const ContactMe = (_, ref) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [query, setQuery] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState(defaultError);
+  const [isSubmitClicked, setIsSubmitClicked] = useState(false);
 
   const { themeMode } = useContext(ThemeModeContext);
 
@@ -38,12 +44,72 @@ const ContactMe = (_, ref) => {
     setQuery('');
   };
 
-  const handleSubmit = async () => {
-    const response = await fetch(`/api/send-email?name=${name}&email=${email}&query=${query}`);
-    console.log('response =>', response);
+  const validateNameFields = () => {
+    if (!name) {
+      return 'Name field is mandatory';
+    } else if (name.length <= 3) {
+      return 'Name field should not be less than 3 characters';
+    } else if (!isValidName(name)) {
+      return 'Name field is not valid';
+    }
 
-    if (response.ok) {
-      resetFields();
+    return '';
+  };
+
+  const validateEmailFields = () => {
+    if (!email) {
+      return 'Email field is mandatory';
+    } else if (!isValidEmail(email)) {
+      return 'Email field is not valid';
+    }
+
+    return '';
+  };
+
+  const validateQueryFields = () => {
+    if (!query) {
+      return 'Query field is mandatory';
+    } else if (query.length <= 3) {
+      return 'Query field should not be less than 3 characters';
+    }
+
+    return '';
+  };
+
+  const validateFields = ({ nameValidation = false, emailValidation = false, queryValidation = false }) => {
+    const nameError = nameValidation ? validateNameFields() : error.name;
+    const emailError = emailValidation ? validateEmailFields() : error.email;
+    const queryError = queryValidation ? validateQueryFields() : error.query;
+
+    setError({ name: nameError, email: emailError, query: queryError });
+
+    return !(nameError || emailError || queryError);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    const isValid = validateFields({ nameValidation: true, emailValidation: true, queryValidation: true });
+
+    if (!isValid) {
+      setIsSending(false);
+      setIsSubmitClicked(true);
+      setTimeout(() => setIsSubmitClicked(false), 1400);
+
+      return false;
+    }
+
+    try {
+      const response = await fetch(`/api/send-email?name=${name}&email=${email}&query=${query}`);
+
+      if (response.ok) {
+        resetFields();
+      }
+    } catch (err) {
+      console.error('ERROR : SENDING EMAIL : ', err);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -65,28 +131,47 @@ const ContactMe = (_, ref) => {
         </div>
       </div>
 
-      <TextInput
-        name="name"
-        label="Your name"
-        value={name}
-        onChange={handleNameChange}
-      />
+      <form noValidate onSubmit={handleSubmit}>
+        <TextInput
+          name="name"
+          label="Your name*"
+          value={name}
+          error={error.name}
+          onChange={handleNameChange}
+          handleValidation={() => validateFields({ nameValidation: true })}
+          isSubmitClicked={isSubmitClicked}
+        />
 
-      <TextInput
-        name="email"
-        label="Your email"
-        value={email}
-        onChange={handleEmailChange}
-      />
+        <TextInput
+          name="email"
+          label="Your email*"
+          value={email}
+          error={error.email}
+          onChange={handleEmailChange}
+          handleValidation={() => validateFields({ emailValidation: true })}
+          isSubmitClicked={isSubmitClicked}
+        />
 
-      <TextArea
-        name="query"
-        label="Your query"
-        value={query}
-        onChange={handleQueryChange}
-      />
+        <TextArea
+          name="query"
+          label="Your query*"
+          value={query}
+          error={error.query}
+          onChange={handleQueryChange}
+          handleValidation={() => validateFields({ queryValidation: true })}
+          isSubmitClicked={isSubmitClicked}
+        />
 
-      <Button primary css="px-2 py-2 rounded" onClick={handleSubmit}>Send direct message</Button>
+        <Button
+          primary
+          isSubmit
+          isFullWidth
+          css="px-2 py-2 rounded"
+          isLoading={isSending}
+        >
+          Send direct message
+        </Button>
+      </form>
 
       <div className="flex justify-around absolute bottom-16 w-[calc(100%-8px)]">
         <a href="https://github.com/HamidRaza94" target='_blank'>
