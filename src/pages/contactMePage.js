@@ -40,6 +40,7 @@ const ContactMe = (_, ref) => {
 
   const handleSubmit = async () => {
     const response = await fetch(`/api/send-email?name=${name}&email=${email}&query=${query}`);
+    console.log('response =>', response);
 
     if (response.ok) {
       resetFields();

@@ -5,6 +5,7 @@ import MailTemplate from '@/components/mailTemplate';
 
 export default async function handler(req, res) {
   const { name, email, query } = req.query;
+  console.log('req.query =>', req.query, process.env.SMTP_TO_EMAIL);
 
   await sendEmail({
     to: process.env.SMTP_TO_EMAIL,
