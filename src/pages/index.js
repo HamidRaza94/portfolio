@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import Head from 'next/head'
+import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
 import { Nunito } from 'next/font/google';
 
@@ -17,7 +18,9 @@ import AbilityPage from './abilityPage';
 import ProjectsPage from './projectsPage';
 import ContactMePage from './contactMePage';
 
-export default function HomeApp() {
+export default function HomeApp(props) {
+  const { contactNo, emailAddress } = props;
+
   const { darkThemeMode } = useContext(ThemeModeContext);
   const {
     homeRef,
@@ -109,10 +112,26 @@ export default function HomeApp() {
         </section>
 
         <section ref={contactMeRef} className="min-h-screen h-screen">
-          <ContactMePage ref={contactMeViewRef}/>
+          <ContactMePage
+            ref={contactMeViewRef}
+            contactNo={contactNo}
+            emailAddress={emailAddress}
+          />
         </section>
       </main>
       <NavBar />
     </>
   );
 }
+
+HomeApp.propTypes = {
+  contactNo: PropTypes.string.isRequired,
+  emailAddress: PropTypes.string.isRequired,
+};
+
+export const getStaticProps = () => {
+  const contactNo = process.env.CONTACT_NUMBER;
+  const emailAddress = process.env.SMTP_FROM_EMAIL;
+
+  return { props: { contactNo, emailAddress } };
+};

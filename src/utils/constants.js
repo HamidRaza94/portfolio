@@ -4,3 +4,7 @@ export const THEME_MODES = {
 }
 
 export const AXIS = ['horizontal', 'vertical'];
+
+export const URLS = {
+  sendEmail: '/api/send-email',
+};

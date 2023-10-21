@@ -1,4 +1,6 @@
 import { useState, useContext, forwardRef } from 'react';
+import Link from 'next/link'
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import PageHeading from '@/components/pageHeading';
@@ -7,7 +9,8 @@ import TextArea from '@/components/textArea';
 import Button from '@/components/button';
 import Label from '@/components/label';
 import Spacer from '@/components/spacer';
-import { THEME_MODES } from '@/utils/constants';
+
+import { THEME_MODES, URLS } from '@/utils/constants';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import { isValidName, isValidEmail } from '@/utils/helper';
 
@@ -21,7 +24,9 @@ import TwitterIcon from '@/assets/icons/twitter.svg';
 
 const defaultError = { name: '', email: '', query: '' };
 
-const ContactMe = (_, ref) => {
+const ContactMe = (props, ref) => {
+  const { contactNo, emailAddress } = props;
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [query, setQuery] = useState('');
@@ -101,7 +106,12 @@ const ContactMe = (_, ref) => {
     }
 
     try {
-      const response = await fetch(`/api/send-email?name=${name}&email=${email}&query=${query}`);
+      const trimmedName = name.trim();
+      const trimmedEmail = email.trim();
+      const trimmedQuery = query.trim();
+      const url = `${URLS.sendEmail}?name=${trimmedName}&email=${trimmedEmail}&query=${trimmedQuery}`;
+
+      const response = await fetch(url);
 
       if (response.ok) {
         resetFields();
@@ -113,26 +123,22 @@ const ContactMe = (_, ref) => {
     }
   };
 
-  const goToPhoneCall = () => {
-    window.open('tel:+91 88007 52952');
-  };
-
   return (
     <div className={classNames('w-full flex flex-col')}>
       <PageHeading label="Get in touch!" ref={ref} />
 
       <div className="flex justify-around my-7">
-        <div className="flex flex-col justify-center items-center" onClick={goToPhoneCall}>
+        <Link href={`tel:${contactNo}`} className="flex flex-col justify-center items-center">
           <PhoneCallIcon fill={isLightTheme ? '': 'white'} />
           <Spacer size={10} axis="vertical" />
-          <Label text="+91 88007 52952" isBold />
-        </div>
+          <Label text={contactNo} isBold />
+        </Link>
 
-        <div className="flex flex-col justify-center items-center">
+        <Link href={`mailto:${emailAddress}`} className="flex flex-col justify-center items-center">
           <AtSignIcon color={isLightTheme ? '': 'white'} />
           <Spacer size={10} axis="vertical" />
-          <Label text="raza.hamid09@gmail.com" isBold />
-        </div>
+          <Label text={emailAddress} isBold />
+        </Link>
       </div>
 
       <form noValidate onSubmit={handleSubmit}>
@@ -191,5 +197,10 @@ const ContactMe = (_, ref) => {
     </div>
   );
 }
+
+ContactMe.propTypes = {
+  contactNo: PropTypes.string.isRequired,
+  emailAddress: PropTypes.string.isRequired,
+};
 
 export default forwardRef(ContactMe);
