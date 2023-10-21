@@ -7,7 +7,6 @@ import MyPhoto from '@/assets/images/myPhoto/dp1.jpg';
 import RightIcon from '@/assets/icons/right.svg';
 import MenuContext from '@/contexts/MenuContext';
 
-// h-[calc(100vh-48px)]
 const Home = (_, ref) => {
   const { setMenu, setMenuClicked } = useContext(MenuContext);
 
@@ -36,7 +35,7 @@ const Home = (_, ref) => {
         <br />
         <Button primary onClick={handleClick}>
           <div className={classNames('flex items-center')}>
-            Contact Me
+            Contact me
             <RightIcon />
           </div>
         </Button>

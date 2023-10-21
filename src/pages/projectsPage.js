@@ -51,14 +51,12 @@ const Projects = (_, ref) => {
   }
 
   const customStyles = {
-    // content: {
-    //   top: '50%',
-    //   left: '50%',
-    //   right: 'auto',
-    //   bottom: 'auto',
-    //   marginRight: '-50%',
-    //   transform: 'translate(-50%, -50%)',
-    // },
+    content: {
+      top: '50px',
+      bottom: '50px',
+      left: '20px',
+      right: '20px',
+    },
   };
 
   return (
@@ -113,7 +111,7 @@ const Projects = (_, ref) => {
                 onClick={closeModal}
                 primary
                 noPadding
-                css="py-1 px-3"
+                css="py-1 px-5"
               >
                 OK
               </Button>
