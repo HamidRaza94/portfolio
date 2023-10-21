@@ -113,12 +113,16 @@ const ContactMe = (_, ref) => {
     }
   };
 
+  const goToPhoneCall = () => {
+    window.open('tel:+91 88007 52952');
+  };
+
   return (
     <div className={classNames('w-full flex flex-col')}>
       <PageHeading label="Get in touch!" ref={ref} />
 
       <div className="flex justify-around my-7">
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center" onClick={goToPhoneCall}>
           <PhoneCallIcon fill={isLightTheme ? '': 'white'} />
           <Spacer size={10} axis="vertical" />
           <Label text="+91 88007 52952" isBold />

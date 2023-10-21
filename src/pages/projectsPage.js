@@ -1,5 +1,6 @@
 import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
+import Modal from 'react-modal';
 
 import PageHeading from '@/components/pageHeading';
 import ClipboardIcon from '@/assets/icons/clipboard.svg';
@@ -7,7 +8,6 @@ import Label from '@/components/label';
 import Spacer from '@/components/spacer';
 import Button from '@/components/button';
 import Divider from '@/components/divider';
-import Modal from '@/components/modal';
 
 const PROJECT_LIST = [
   {
@@ -37,7 +37,29 @@ const PROJECT_LIST = [
 ];
 
 const Projects = (_, ref) => {
-  const [showModal, setShowModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (projectId) => {
+    setSelectedProject(projectId);
+    setIsModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setSelectedProject(null);
+    setIsModalOpen(false);
+  }
+
+  const customStyles = {
+    // content: {
+    //   top: '50%',
+    //   left: '50%',
+    //   right: 'auto',
+    //   bottom: 'auto',
+    //   marginRight: '-50%',
+    //   transform: 'translate(-50%, -50%)',
+    // },
+  };
 
   return (
     <div className={classNames('')}>
@@ -55,7 +77,7 @@ const Projects = (_, ref) => {
             <Spacer size={10} axis="vertical" />
             <Label text={project.description} style="line-clamp-2 leading-none" />
             <Spacer size={10} axis="vertical" />
-            <Button primary css="px-2 py-1 rounded" onClick={() => setShowModal(false)}>
+            <Button primary css="px-2 py-1 rounded" onClick={() => openModal(index)}>
               Read more
             </Button>
 
@@ -64,7 +86,41 @@ const Projects = (_, ref) => {
           </div>
         </div>
       ))}
-      <Modal isOpen={showModal} closeModal={() => setShowModal(false)} />
+
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Project Description"
+        >
+          <div className="flex flex-col justify-between h-full">
+            <div className="flex flex-col items-center">
+              <div className="flex justify-center items-center w-28 h-28 bg-grey rounded-full">
+                <ClipboardIcon width={80} height={80} />
+              </div>
+
+              <div className="flex flex-col items-center my-3">
+                <Label text={PROJECT_LIST[selectedProject].name} isBold size="text-lg" />
+                <Label text={PROJECT_LIST[selectedProject].duration} isItalic style="leading-3" />
+              </div>
+
+              <Label text={PROJECT_LIST[selectedProject].description} style="leading-none" />
+            </div>
+
+            <div className="flex justify-end">
+              <Button
+                onClick={closeModal}
+                primary
+                noPadding
+                css="py-1 px-3"
+              >
+                OK
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }

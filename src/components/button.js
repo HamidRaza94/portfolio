@@ -47,6 +47,7 @@ Button.propTypes = {
   noPadding: PropTypes.bool,
   css: PropTypes.string,
   isLoading: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default Button;
