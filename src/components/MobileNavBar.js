@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import Drawer from '@/components/drawer';
 import Menu from '@/components/menu';
+import useNavigation from '@/hooks/useNavigation';
 
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import LightModeIcon from '@/assets/icons/light-mode.svg';
@@ -10,11 +11,16 @@ import DarkModeIcon from '@/assets/icons/dark-mode.svg';
 import AppIcon from '@/assets/icons/apps.svg';
 import { THEME_MODES } from '@/utils/constants';
 
-const NavBar = () => {
+const MobileNavBar = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const { themeMode, toggleThemeMode } = useContext(ThemeModeContext);
+  const isMobileView = useNavigation();
 
   const getLogoName = () => '<Hamid />';
+
+  if (!isMobileView || isMobileView === null) {
+    return null;
+  }
 
   return (
     <nav>
@@ -38,4 +44,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default MobileNavBar;

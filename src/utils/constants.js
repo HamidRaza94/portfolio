@@ -8,3 +8,7 @@ export const AXIS = ['horizontal', 'vertical'];
 export const URLS = {
   sendEmail: '/api/send-email',
 };
+
+export const BREAKPOINTS = {
+  mobile: 640,
+};

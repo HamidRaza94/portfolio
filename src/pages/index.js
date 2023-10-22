@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
 import { Nunito } from 'next/font/google';
 
-import NavBar from '@/components/navBar';
+import MobileNavBar from '@/components/MobileNavBar';
+import DesktopNavBar from '@/components/DesktopNavBar';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import SectionRefContext from '@/contexts/SectionRefContext';
 import MenuContext from '@/contexts/MenuContext';
@@ -83,6 +84,7 @@ export default function HomeApp(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform p-2">
+        <DesktopNavBar />
         <section ref={homeRef} className="min-h-screen h-screen">
           <HomePage ref={homeViewRef}/>
         </section>
@@ -119,7 +121,7 @@ export default function HomeApp(props) {
           />
         </section>
       </main>
-      <NavBar />
+      <MobileNavBar />
     </>
   );
 }
