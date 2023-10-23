@@ -24,7 +24,7 @@ import ExpressJSImage from '@/assets/images/technologies/expressjs.png';
 import MongoDBImage from '@/assets/images/technologies/mongodb.png';
 import ProfileIcon from '@/assets/icons/profile.svg';
 import CalenderIcon from '@/assets/icons/calender.svg';
-import ProjectsIcon from '@/assets/icons/projects-16*16.svg';
+import ProjectsIcon from '@/assets/icons/projects-16.svg';
 
 const Experience = (_, ref) => {
   const { themeMode } = useContext(ThemeModeContext);
