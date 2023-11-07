@@ -85,35 +85,35 @@ export default function HomeApp(props) {
       </Head>
       <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform p-2 sm:px-10">
         <DesktopNavBar />
-        <section ref={homeRef} className="min-h-screen h-screen">
+        <section ref={homeRef} className="min-h-screen h-fit">
           <HomePage ref={homeViewRef}/>
         </section>
 
-        <section ref={aboutMeRef} className="min-h-screen h-screen">
+        <section ref={aboutMeRef} className="min-h-screen h-fit">
           <AboutMePage ref={aboutMeViewRef}/>
         </section>
 
-        <section ref={skillsRef} className="min-h-screen h-screen">
+        <section ref={skillsRef} className="min-h-screen h-fit">
           <SkillsPage ref={skillsViewRef}/>
         </section>
 
-        <section ref={experienceRef} className="min-h-screen h-screen">
+        <section ref={experienceRef} className="min-h-screen h-fit">
           <ExperiencePage ref={experienceViewRef}/>
         </section>
 
-        <section ref={educationRef} className="min-h-screen h-screen">
+        <section ref={educationRef} className="min-h-screen h-fit">
           <EducationPage ref={educationViewRef}/>
         </section>
 
-        <section ref={abilityRef} className="min-h-screen h-screen">
+        <section ref={abilityRef} className="min-h-screen h-fit">
           <AbilityPage ref={abilityViewRef}/>
         </section>
 
-        <section ref={projectsRef} className="min-h-screen h-screen">
+        <section ref={projectsRef} className="min-h-screen h-fit">
           <ProjectsPage ref={projectsViewRef}/>
         </section>
 
-        <section ref={contactMeRef} className="min-h-screen h-screen">
+        <section ref={contactMeRef} className="min-h-screen h-fit">
           <ContactMePage
             ref={contactMeViewRef}
             contactNo={contactNo}

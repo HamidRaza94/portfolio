@@ -11,13 +11,15 @@ const Accordion = (props) => {
     setOpenIndex(prevIndex => prevIndex === index ? null : index);
   }
 
+  const getAccordionComp = (content) => content.map(({ comp }) => comp);
+
   return (
     <div className="overflow-hidden">
       {items.map((item, index) => (
         <AccordionItem
           key={`${index}`}
           title={item.title}
-          content={item.content}
+          content={getAccordionComp(item.content)}
           isOpen={openIndex === index}
           toggleAccordion={() => toggleAccordion(index)}
         />

@@ -4,7 +4,7 @@ const Loader = (props) => {
   const { label, count } = props;
 
   return (
-    <div>
+    <div className="w-full">
       <h3 className="dark:text-gray-300">{label}</h3>
       <div className={classNames('text-xs bg-white w-full h-4')}>
         <div

@@ -15,8 +15,8 @@ import DownloadIcon from '@/assets/icons/download.svg';
 
 const AboutMe = (_, ref) => {
   return (
-    <div className={classNames('flex flex-col')}>
-      <div className={classNames('flex justify-center')}>
+    <div className={classNames('flex flex-col h-full sm:flex-row sm:justify-center sm:items-center')}>
+      <div className={classNames('flex justify-center sm:flex-row-reverse sm:mx-10')}>
         <div className={classNames('grid grid-cols-1 items-center mr-4')}>
           <a href="https://github.com/HamidRaza94" target='_blank'>
             <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
@@ -37,29 +37,32 @@ const AboutMe = (_, ref) => {
         />
       </div>
 
-      <div className={classNames('flex justify-between items-center my-4')}>
-        <h1 ref={ref} className={classNames('text-2xl dark:text-gray-300')}>About me</h1>
-        <a
-          href="/resume.pdf"
-          download="Mohammad Hamid Raza's Resume"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Button primary noPadding css="p-1.5">
-            <div className={classNames('flex items-center')}>
-              Get Resume&nbsp;
-              <DownloadIcon />
-            </div>
-          </Button>
-        </a>
+      <div className="flex flex-col sm:flex-col-reverse sm:w-6/12">
+        <div className={classNames('flex justify-between items-center my-4')}>
+          <h1 ref={ref} className={classNames('text-2xl dark:text-gray-300 sm:hidden')}>About me</h1>
+          <a
+            href="/resume.pdf"
+            download="Mohammad Hamid Raza's Resume"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button primary noPadding css="p-1.5">
+              <div className={classNames('flex items-center')}>
+                Get Resume&nbsp;
+                <DownloadIcon />
+              </div>
+            </Button>
+          </a>
+        </div>
+
+        <p className={classNames('text-xl dark:text-gray-300')}>
+          Passionate programmer with a knack for learning new languages, producing quality work.
+          Passionate programmer with a knack for learning new languages, producing quality work.
+          Passionate programmer with a knack for learning new languages, producing quality work.
+          Passionate programmer with a knack for learning new languages, producing quality work.
+        </p>
       </div>
 
-      <p className={classNames('text-xl dark:text-gray-300')}>
-        Passionate programmer with a knack for learning new languages, producing quality work.
-        Passionate programmer with a knack for learning new languages, producing quality work.
-        Passionate programmer with a knack for learning new languages, producing quality work.
-        Passionate programmer with a knack for learning new languages, producing quality work.
-      </p>
     </div>
   );
 }
