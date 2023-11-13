@@ -1,21 +1,12 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import classNames from 'classnames';
 
-import Drawer from '@/components/drawer';
 import menus from '@/components/menu/menus';
 import useNavigation from '@/hooks/useNavigation';
 
 import MenuContext from '@/contexts/MenuContext';
-import ThemeModeContext from '@/contexts/ThemeModeContext';
-import LightModeIcon from '@/assets/icons/light-mode.svg';
-import DarkModeIcon from '@/assets/icons/dark-mode.svg';
-import AppIcon from '@/assets/icons/apps.svg';
-import { THEME_MODES } from '@/utils/constants';
 
 const DesktopNavBar = () => {
-  const [menuOpened, setMenuOpened] = useState(false);
-
-  const { themeMode, toggleThemeMode } = useContext(ThemeModeContext);
   const { menu, setMenu, setMenuClicked } = useContext(MenuContext);
 
   const isMobileView = useNavigation();
@@ -45,11 +36,7 @@ const DesktopNavBar = () => {
                 key={id}
                 className={classNames(
                   'flex items-center p-1 ml-1 rounded-lg cursor-pointer',
-                  {
-                    'text-white': menu === id,
-                    'bg-primary': menu === id,
-                    // 'dark:bg-light-grey': menu === id,
-                  },
+                  { 'text-white': menu === id, 'bg-primary': menu === id },
                 )}
                 onClick={() => handleClick(id)}
               >

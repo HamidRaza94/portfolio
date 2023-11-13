@@ -13,16 +13,18 @@ const Ability = (_, ref) => {
     <div className={classNames('flex flex-col items-center justify-center')}>
       <PageHeading label="Ability" ref={ref} />
 
-        <div className="flex flex-col justify-center items-center">
-          <FrontEndIcon width={150} />
-          <Label text="Front-end designing" />
-        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-around sm:w-full">
+          <div className="flex flex-col justify-center items-center">
+            <FrontEndIcon width={150} />
+            <Label text="Front-end designing" />
+          </div>
 
-        <Spacer size={150} axis="vertical" />
+          <Spacer size={150} axis="vertical" />
 
-        <div className="flex flex-col justify-center items-center">
-          <BackEndIcon width={150} />
-          <Label text="Back-end designing" />
+          <div className="flex flex-col justify-center items-center">
+            <BackEndIcon width={150} />
+            <Label text="Back-end designing" />
+          </div>
         </div>
     </div>
   );

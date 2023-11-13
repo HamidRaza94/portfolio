@@ -19,10 +19,14 @@ import AbilityPage from './abilityPage';
 import ProjectsPage from './projectsPage';
 import ContactMePage from './contactMePage';
 
+import UpIcon from '@/assets/icons/circle-chevron-up.svg';
+import LightModeIcon from '@/assets/icons/light-mode.svg';
+import DarkModeIcon from '@/assets/icons/dark-mode.svg';
+
 export default function HomeApp(props) {
   const { contactNo, emailAddress } = props;
 
-  const { darkThemeMode } = useContext(ThemeModeContext);
+  const { darkThemeMode, toggleThemeMode } = useContext(ThemeModeContext);
   const {
     homeRef,
     aboutMeRef,
@@ -33,7 +37,7 @@ export default function HomeApp(props) {
     projectsRef,
     contactMeRef,
   } = useContext(SectionRefContext);
-  const { setMenu } = useContext(MenuContext);
+  const { setMenu, setMenuClicked } = useContext(MenuContext);
 
   const [homeViewRef, homeInView] = useInView();
   const [aboutMeViewRef, aboutMeInView] = useInView();
@@ -75,6 +79,11 @@ export default function HomeApp(props) {
     }
   }, [darkThemeMode]);
 
+  const scrollToHome = () => {
+    setMenuClicked(true);
+    setMenu(1);
+  };
+
   return (
     <>
       <Head>
@@ -83,6 +92,22 @@ export default function HomeApp(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="fixed right-5 bottom-12 sm:bottom-4 z-50 cursor-pointer" onClick={scrollToHome}>
+        <UpIcon className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary" />
+      </div>
+      <div className="hidden sm:flex fixed right-5 bottom-12 sm:bottom-14 z-50 cursor-pointer w-11 h-11 justify-center items-center">
+        {darkThemeMode ? (
+          <DarkModeIcon
+            className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary"
+            onClick={() => toggleThemeMode()}
+          />
+        ) : (
+          <LightModeIcon
+            className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary"
+            onClick={() => toggleThemeMode()}
+          />
+        )}
+      </div>
       <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform p-2 sm:px-10">
         <DesktopNavBar />
         <section ref={homeRef} className="min-h-screen h-fit">

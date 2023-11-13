@@ -13,6 +13,7 @@ import Spacer from '@/components/spacer';
 import { THEME_MODES, URLS } from '@/utils/constants';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import { isValidName, isValidEmail } from '@/utils/helper';
+import useNavigation from '@/hooks/useNavigation';
 
 import PhoneCallIcon from '@/assets/icons/phone-call.svg';
 import AtSignIcon from '@/assets/icons/at-sign.svg';
@@ -21,6 +22,7 @@ import LinkedInIcon from '@/assets/icons/linkedin.svg';
 import FacebookIcon from '@/assets/icons/facebook.svg';
 import InstagramIcon from '@/assets/icons/instagram.svg';
 import TwitterIcon from '@/assets/icons/twitter.svg';
+import ContactUsGallery from '@/assets/icons/contact-us-gallery.svg';
 
 const defaultError = { name: '', email: '', query: '' };
 
@@ -35,6 +37,7 @@ const ContactMe = (props, ref) => {
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
 
   const { themeMode } = useContext(ThemeModeContext);
+  const isMobileView = useNavigation();
 
   const { light } = THEME_MODES;
   const isLightTheme = themeMode === light;
@@ -141,49 +144,56 @@ const ContactMe = (props, ref) => {
         </Link>
       </div>
 
-      <form noValidate onSubmit={handleSubmit}>
-        <TextInput
-          name="name"
-          label="Your name*"
-          value={name}
-          error={error.name}
-          onChange={handleNameChange}
-          handleValidation={() => validateFields({ nameValidation: true })}
-          isSubmitClicked={isSubmitClicked}
-        />
+      <div className="flex justify-between">
+        {!isMobileView && (
+          <div className="w-2/3 pl-5 pr-5 flex justify-center items-center">
+            <ContactUsGallery />
+          </div>
+        )}
+        <form noValidate onSubmit={handleSubmit} className="w-full sm:w-1/3 sm:min-w-96">
+          <TextInput
+            name="name"
+            label="Your name*"
+            value={name}
+            error={error.name}
+            onChange={handleNameChange}
+            handleValidation={() => validateFields({ nameValidation: true })}
+            isSubmitClicked={isSubmitClicked}
+          />
 
-        <TextInput
-          name="email"
-          label="Your email*"
-          value={email}
-          error={error.email}
-          onChange={handleEmailChange}
-          handleValidation={() => validateFields({ emailValidation: true })}
-          isSubmitClicked={isSubmitClicked}
-        />
+          <TextInput
+            name="email"
+            label="Your email*"
+            value={email}
+            error={error.email}
+            onChange={handleEmailChange}
+            handleValidation={() => validateFields({ emailValidation: true })}
+            isSubmitClicked={isSubmitClicked}
+          />
 
-        <TextArea
-          name="query"
-          label="Your query*"
-          value={query}
-          error={error.query}
-          onChange={handleQueryChange}
-          handleValidation={() => validateFields({ queryValidation: true })}
-          isSubmitClicked={isSubmitClicked}
-        />
+          <TextArea
+            name="query"
+            label="Your query*"
+            value={query}
+            error={error.query}
+            onChange={handleQueryChange}
+            handleValidation={() => validateFields({ queryValidation: true })}
+            isSubmitClicked={isSubmitClicked}
+          />
 
-        <Button
-          primary
-          isSubmit
-          isFullWidth
-          css="px-2 py-2 rounded"
-          isLoading={isSending}
-        >
-          Send direct message
-        </Button>
-      </form>
+          <Button
+            primary
+            isSubmit
+            isFullWidth
+            css="px-2 py-2 rounded"
+            isLoading={isSending}
+          >
+            Send direct message
+          </Button>
+        </form>
+      </div>
 
-      <div className="flex justify-around absolute bottom-16 w-[calc(100%-8px)]">
+      <div className="flex justify-around mt-4 mb-24 sm:mb-14">
         <a href="https://github.com/HamidRaza94" target='_blank'>
           <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
         </a>

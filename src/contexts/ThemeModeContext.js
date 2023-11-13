@@ -23,6 +23,7 @@ const ThemeModeProvider = (props) => {
 
   const providerValue = useMemo(() => ({
     themeMode,
+    lightThemeMode: themeMode === THEME_MODES.light,
     darkThemeMode: themeMode === THEME_MODES.dark,
     toggleThemeMode,
   }), [themeMode, toggleThemeMode]);

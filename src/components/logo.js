@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 
 const Logo = (props) => {
@@ -8,6 +9,12 @@ const Logo = (props) => {
       <Image src={img} alt={alt} className={`w-${radius - 1} h-${radius - 1}`}/>
     </div>
   );
+};
+
+Logo.propTypes = {
+  img: PropTypes.any.isRequired,
+  alt: PropTypes.string.isRequired,
+  radius: PropTypes.number,
 };
 
 export default Logo;
