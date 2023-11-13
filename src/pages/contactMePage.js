@@ -150,7 +150,7 @@ const ContactMe = (props, ref) => {
             <ContactUsGallery />
           </div>
         )}
-        <form noValidate onSubmit={handleSubmit} className="w-full sm:w-1/3 sm:min-w-96">
+        <form noValidate onSubmit={handleSubmit} className="w-full md:w-1/3 md:min-w-96">
           <TextInput
             name="name"
             label="Your name*"
@@ -193,7 +193,7 @@ const ContactMe = (props, ref) => {
         </form>
       </div>
 
-      <div className="flex justify-around mt-4 mb-24 sm:mb-14">
+      <div className="flex justify-around mt-4 mb-24 md:mb-14">
         <a href="https://github.com/HamidRaza94" target='_blank'>
           <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
         </a>

@@ -13,11 +13,11 @@ const Education = (_, ref) => {
     <div className={classNames('flex flex-col')}>
       <PageHeading label="Education" ref={ref} />
 
-      <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center">
-        <div className="flex justify-start sm:flex-col-reverse sm:items-start">
+      <div className="flex flex-col md:flex-row md:justify-center md:items-center">
+        <div className="flex justify-start md:flex-col-reverse md:items-start">
           <JourneyBar height={isMobileView ? 110 : 300} isHorizontal={!isMobileView} />
 
-          <div className="ml-2 sm:ml-5">
+          <div className="ml-2 md:ml-5">
             <Label text="B Tech" size="text-xl" isBold style="leading-4" />
             <Label text="northern india engineering college" isBold />
             <Label text="july 2015 - aug 2018" isItalic />
@@ -26,10 +26,10 @@ const Education = (_, ref) => {
           </div>
         </div>
 
-        <div className="flex justify-start sm:flex-col-reverse sm:items-start">
+        <div className="flex justify-start md:flex-col-reverse md:items-start">
           <JourneyBar height={isMobileView ? 110 : 300} isHorizontal={!isMobileView} />
 
-          <div className="ml-2 sm:ml-5">
+          <div className="ml-2 md:ml-5">
             <Label text="Diploma" size="text-xl" isBold style="leading-4" />
             <Label text="guru nanak dev polytechnic" isBold />
             <Label text="july 2012 - aug 2015" isItalic />
@@ -38,10 +38,10 @@ const Education = (_, ref) => {
           </div>
         </div>
 
-        <div className="flex justify-start sm:flex-col-reverse sm:items-start">
+        <div className="flex justify-start md:flex-col-reverse md:items-start">
           <JourneyBar height={isMobileView ? 110 : 300} isHorizontal={!isMobileView} />
 
-          <div className="ml-2 sm:ml-5">
+          <div className="ml-2 md:ml-5">
             <Label text="Xth" size="text-xl" isBold style="leading-4" />
             <Label text="govt boys senior secondary school" isBold />
             <Label text="july 2010 - aug 2011" isItalic />

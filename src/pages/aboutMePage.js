@@ -15,8 +15,8 @@ import DownloadIcon from '@/assets/icons/download.svg';
 
 const AboutMe = (_, ref) => {
   return (
-    <div className={classNames('flex flex-col h-full sm:flex-row sm:justify-center sm:items-center')}>
-      <div className={classNames('flex justify-center sm:flex-row-reverse sm:mx-10')}>
+    <div className={classNames('flex flex-col h-full md:flex-row md:justify-center md:items-center')}>
+      <div className={classNames('flex justify-center md:flex-row-reverse md:mx-10')}>
         <div className={classNames('grid grid-cols-1 items-center mr-4')}>
           <a href="https://github.com/HamidRaza94" target='_blank'>
             <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
@@ -37,9 +37,9 @@ const AboutMe = (_, ref) => {
         />
       </div>
 
-      <div className="flex flex-col sm:flex-col-reverse sm:w-6/12">
+      <div className="flex flex-col md:flex-col-reverse md:w-6/12">
         <div className={classNames('flex justify-between items-center my-4')}>
-          <h1 ref={ref} className={classNames('text-2xl dark:text-gray-300 sm:hidden')}>About me</h1>
+          <h1 ref={ref} className={classNames('text-2xl dark:text-gray-300 md:hidden')}>About me</h1>
           <a
             href="/resume.pdf"
             download="Mohammad Hamid Raza's Resume"

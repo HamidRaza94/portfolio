@@ -10,5 +10,5 @@ export const URLS = {
 };
 
 export const BREAKPOINTS = {
-  mobile: 640,
+  mobile: 768,
 };

@@ -13,7 +13,7 @@ const Ability = (_, ref) => {
     <div className={classNames('flex flex-col items-center justify-center')}>
       <PageHeading label="Ability" ref={ref} />
 
-        <div className="flex flex-col sm:flex-row sm:justify-around sm:w-full">
+        <div className="flex flex-col md:flex-row md:justify-around md:w-full">
           <div className="flex flex-col justify-center items-center">
             <FrontEndIcon width={150} />
             <Label text="Front-end designing" />
