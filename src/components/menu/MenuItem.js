@@ -8,14 +8,14 @@ const MenuItem = (props) => {
       className={classNames(
         'flex flex-col items-center rounded-lg',
         {
-          'text-black': selected,
-          'bg-light-grey': selected,
-          'dark:bg-light-grey': selected,
+          'text-white': selected,
+          'dark:text-white': selected,
+          'bg-primary': selected,
         },
       )}
       onClick={() => handleClick(id)}
     >
-      <Icon />
+      {Icon}
       <label>{text}</label>
     </div>
   );

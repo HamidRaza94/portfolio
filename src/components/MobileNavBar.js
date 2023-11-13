@@ -23,7 +23,7 @@ const MobileNavBar = () => {
   }
 
   return (
-    <nav>
+    <nav className="z-20">
       <div className={classNames('fixed bottom-0 flex justify-between w-full px-3 py-2 bg-white dark:bg-dark-grey text-black dark:text-white')}>
         <h1 className='text-2xl'>{getLogoName()}</h1>
         <div className={classNames('flex justify-center')}>

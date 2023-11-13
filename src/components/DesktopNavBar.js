@@ -37,10 +37,11 @@ const DesktopNavBar = () => {
                 className={classNames(
                   'flex items-center p-1 ml-1 rounded-lg cursor-pointer',
                   { 'text-white': menu === id, 'bg-primary': menu === id },
+                  'dark:text-white',
                 )}
                 onClick={() => handleClick(id)}
               >
-                <Icon />
+                {Icon}
                 <label className="cursor-pointer">{label}</label>
               </div>
             ))}

@@ -92,7 +92,7 @@ export default function HomeApp(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="fixed right-5 bottom-12 sm:bottom-4 z-50 cursor-pointer" onClick={scrollToHome}>
+      <div className="fixed right-5 bottom-12 sm:bottom-4 z-10 cursor-pointer" onClick={scrollToHome}>
         <UpIcon className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary" />
       </div>
       <div className="hidden sm:flex fixed right-5 bottom-12 sm:bottom-14 z-50 cursor-pointer w-11 h-11 justify-center items-center">
