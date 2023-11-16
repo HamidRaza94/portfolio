@@ -37,10 +37,10 @@ const Experience = (_, ref) => {
   const isLightTheme = themeMode === light;
 
   return (
-    <div className={classNames('flex flex-col items-center')}>
-      <PageHeading label="Experience" ref={ref} />
+    <div className={classNames('flex flex-col items-center h-[calc(100vh)]')}>
+      <PageHeading label="Experience" />
       {isMobileView ? (
-        <div className="flex">
+        <div ref={ref} className="flex">
           <div className="flex flex-col items-end">
             <Image
               src={HTCCompanyImage}
@@ -164,7 +164,7 @@ const Experience = (_, ref) => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col">
+        <div ref={ref} className="flex flex-col justify-center h-[calc(100vh)]">
           <div className="flex flex-row items-end">
             <Image src={HTCCompanyImage} alt="HTC Global Services Logo" className="w-24 h-8" />
 

@@ -69,8 +69,8 @@ const Projects = (_, ref) => {
 
   if (isMobileView) {
     return (
-      <div className={classNames('')}>
-        <PageHeading label="Projects" ref={ref} />
+      <div ref={ref} className={classNames('')}>
+        <PageHeading label="Projects" />
 
         {PROJECT_LIST.map((project, index) => (
           <div className="flex" key={project.id}>
@@ -136,7 +136,7 @@ const Projects = (_, ref) => {
     <div>
       <PageHeading label="Projects" ref={ref} />
 
-      <div className="flex m-2 flex-wrap justify-between">
+      <div ref={ref} className="flex m-2 flex-wrap justify-between">
         {PROJECT_LIST.map((project, index) => (
           <Card
             key={index.toString}

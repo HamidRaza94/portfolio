@@ -9,6 +9,7 @@ import ListCheckIcon from '@/assets/icons/new/list-check.svg';
 import FolderOpenIcon from '@/assets/icons/new/folder-open.svg';
 import AddressBookIcon from '@/assets/icons/new/address-book.svg';
 import UserCircleIcon from '@/assets/icons/new/user-circle.svg';
+import classNames from 'classnames';
 
 const IconMapping = {
   home: HomeIcon,
@@ -26,14 +27,12 @@ const Icon = ({ name, size, selected }) => {
   const SVGIcon = IconMapping[name];
 
   return (
-    <div>
-      <SVGIcon
-        width={size}
-        height={size}
-        viewBox={`0 0 ${size} ${size}`}
-        className={selected ? 'stroke-grey dark:stroke-grey' : 'stroke-black dark:stroke-grey'}
-      />
-    </div>
+    <SVGIcon
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      className={classNames(selected ? 'stroke-grey dark:stroke-grey' : 'stroke-black dark:stroke-grey', 'group-hover:stroke-grey')}
+    />
   );
 };
 

@@ -10,10 +10,10 @@ import Spacer from '@/components/spacer';
 
 const Ability = (_, ref) => {
   return (
-    <div className={classNames('flex flex-col items-center justify-center')}>
-      <PageHeading label="Ability" ref={ref} />
+    <div ref={ref} className={classNames('flex flex-col items-center justify-center md:h-[calc(100vh-56px)]')}>
+      <PageHeading label="Ability" />
 
-        <div className="flex flex-col md:flex-row md:justify-around md:w-full">
+        <div className="flex flex-col md:flex-row md:justify-around md:w-full h-full">
           <div className="flex flex-col justify-center items-center">
             <FrontEndIcon width={150} />
             <Label text="Front-end designing" />

@@ -10,10 +10,10 @@ const Education = (_, ref) => {
   const isMobileView = useNavigation();
 
   return (
-    <div className={classNames('flex flex-col')}>
-      <PageHeading label="Education" ref={ref} />
+    <div className={classNames('flex flex-col h-[calc(100vh)]')}>
+      <PageHeading label="Education" />
 
-      <div className="flex flex-col md:flex-row md:justify-center md:items-center">
+      <div ref={ref} className="flex flex-col md:flex-row md:justify-center md:items-center h-full">
         <div className="flex justify-start md:flex-col-reverse md:items-start">
           <JourneyBar height={isMobileView ? 110 : 300} isHorizontal={!isMobileView} />
 

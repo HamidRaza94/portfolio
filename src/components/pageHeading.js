@@ -1,9 +1,7 @@
-import { forwardRef } from 'react';
-
-const PageHeading = (props, ref) => {
+const PageHeading = (props) => {
   const { label } = props;
 
-  return <h1 ref={ref} className="text-2xl text-center dark:text-gray-300 mb-5">{label}</h1>;
+  return <h1 className="text-2xl text-center dark:text-gray-300 mb-5 md:hidden">{label}</h1>;
 };
 
-export default forwardRef(PageHeading);
+export default PageHeading;

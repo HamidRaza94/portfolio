@@ -153,14 +153,10 @@ const Skills = (_, ref) => {
   const isMobileView = useNavigation();
 
   return (
-    <div className="min-h-full h-full">
-      <h1 ref={ref} className="text-2xl text-center dark:text-gray-300">Skills</h1>
+    <div ref={ref} className="min-h-full h-full">
+      <h1 className="text-2xl text-center dark:text-gray-300 md:hidden">Skills</h1>
 
-      {isMobileView ? (
-        <div>
-          <Accordion items={skillList} />
-        </div>
-      ) : (
+      {isMobileView ? <div><Accordion items={skillList} /></div> : (
         <div>
           {skillList.map((skill, index) => (
             <div key={index} className="w-full">
@@ -171,9 +167,7 @@ const Skills = (_, ref) => {
               <div className="flex flex-wrap w-full">
                 {skill.content.map(({ comp, logo }, i) => (
                   <div key={i} className="flex w-1/3 px-3 py-1">
-                    <div className="mr-2 flex items-center">
-                      {logo}
-                    </div>
+                    <div className="mr-2 flex items-center">{logo}</div>
                     <div className="w-full">{comp}</div>
                   </div>
                 ))}

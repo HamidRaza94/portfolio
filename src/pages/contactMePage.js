@@ -127,22 +127,8 @@ const ContactMe = (props, ref) => {
   };
 
   return (
-    <div className={classNames('w-full flex flex-col')}>
-      <PageHeading label="Get in touch!" ref={ref} />
-
-      <div className="flex justify-around my-7">
-        <Link href={`tel:${contactNo}`} className="flex flex-col justify-center items-center">
-          <PhoneCallIcon fill={isLightTheme ? '': 'white'} />
-          <Spacer size={10} axis="vertical" />
-          <Label text={contactNo} isBold />
-        </Link>
-
-        <Link href={`mailto:${emailAddress}`} className="flex flex-col justify-center items-center">
-          <AtSignIcon color={isLightTheme ? '': 'white'} />
-          <Spacer size={10} axis="vertical" />
-          <Label text={emailAddress} isBold />
-        </Link>
-      </div>
+    <div ref={ref} className={classNames('w-full flex flex-col')}>
+      <PageHeading label="Get in touch!" />
 
       <div className="flex justify-between">
         {!isMobileView && (
@@ -150,60 +136,75 @@ const ContactMe = (props, ref) => {
             <ContactUsGallery />
           </div>
         )}
-        <form noValidate onSubmit={handleSubmit} className="w-full md:w-1/3 md:min-w-96">
-          <TextInput
-            name="name"
-            label="Your name*"
-            value={name}
-            error={error.name}
-            onChange={handleNameChange}
-            handleValidation={() => validateFields({ nameValidation: true })}
-            isSubmitClicked={isSubmitClicked}
-          />
+        <div className="flex flex-col w-full md:w-7/12 md:min-w-96">
+          <div className="flex justify-around my-7">
+            <Link href={`tel:${contactNo}`} className="flex flex-col justify-center items-center">
+              <PhoneCallIcon fill={isLightTheme ? '': 'white'} />
+              <Spacer size={10} axis="vertical" />
+              <Label text={contactNo} isBold />
+            </Link>
 
-          <TextInput
-            name="email"
-            label="Your email*"
-            value={email}
-            error={error.email}
-            onChange={handleEmailChange}
-            handleValidation={() => validateFields({ emailValidation: true })}
-            isSubmitClicked={isSubmitClicked}
-          />
+            <Link href={`mailto:${emailAddress}`} className="flex flex-col justify-center items-center">
+              <AtSignIcon color={isLightTheme ? '': 'white'} />
+              <Spacer size={10} axis="vertical" />
+              <Label text={emailAddress} isBold />
+            </Link>
+          </div>
+          <form noValidate onSubmit={handleSubmit} className="w-full">
+            <TextInput
+              name="name"
+              label="Your name*"
+              value={name}
+              error={error.name}
+              onChange={handleNameChange}
+              handleValidation={() => validateFields({ nameValidation: true })}
+              isSubmitClicked={isSubmitClicked}
+            />
 
-          <TextArea
-            name="query"
-            label="Your query*"
-            value={query}
-            error={error.query}
-            onChange={handleQueryChange}
-            handleValidation={() => validateFields({ queryValidation: true })}
-            isSubmitClicked={isSubmitClicked}
-          />
+            <TextInput
+              name="email"
+              label="Your email*"
+              value={email}
+              error={error.email}
+              onChange={handleEmailChange}
+              handleValidation={() => validateFields({ emailValidation: true })}
+              isSubmitClicked={isSubmitClicked}
+            />
 
-          <Button
-            primary
-            isSubmit
-            isFullWidth
-            css="px-2 py-2 rounded"
-            isLoading={isSending}
-          >
-            Send direct message
-          </Button>
-        </form>
+            <TextArea
+              name="query"
+              label="Your query*"
+              value={query}
+              error={error.query}
+              onChange={handleQueryChange}
+              handleValidation={() => validateFields({ queryValidation: true })}
+              isSubmitClicked={isSubmitClicked}
+            />
+
+            <Button
+              primary
+              isSubmit
+              isFullWidth
+              css="px-2 py-2 rounded"
+              isLoading={isSending}
+            >
+              Send direct message
+            </Button>
+          </form>
+          <div className="flex justify-around mt-4 mb-24 md:mb-14">
+            <a href="https://github.com/HamidRaza94" target='_blank'>
+              <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
+            </a>
+            <a href="https://www.linkedin.com/in/mohammad-hamid-raza-4b6a82152" target='_blank'>
+              <LinkedInIcon className={classNames('dark:text-white dark:fill-white')} />
+            </a>
+            <FacebookIcon className={classNames('dark:text-white dark:fill-white')} />
+            <InstagramIcon className={classNames('dark:text-white dark:fill-white')} />
+            <TwitterIcon className={classNames('dark:text-white dark:fill-white')} />
+          </div>
+        </div>
       </div>
 
-      <div className="flex justify-around mt-4 mb-24 md:mb-14">
-        <a href="https://github.com/HamidRaza94" target='_blank'>
-          <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
-        </a>
-        <a href="https://www.linkedin.com/in/mohammad-hamid-raza-4b6a82152" target='_blank'>
-          <LinkedInIcon className={classNames('dark:text-white dark:fill-white')} />
-        </a>
-        <FacebookIcon className={classNames('dark:text-white dark:fill-white')} />
-        <InstagramIcon className={classNames('dark:text-white dark:fill-white')} />
-        <TwitterIcon className={classNames('dark:text-white dark:fill-white')} />
-      </div>
     </div>
   );
 }

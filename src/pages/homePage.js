@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Button from '@/components/button';
 import MyPhoto from '@/assets/images/myPhoto/dp1.jpg';
-import RightIcon from '@/assets/icons/right.svg';
+import RightIcon from '@/assets/icons/new/chevron-right-filled.svg';
 import MenuContext from '@/contexts/MenuContext';
 
 const Home = (_, ref) => {
@@ -40,7 +40,7 @@ const Home = (_, ref) => {
           <Button primary onClick={handleClick}>
             <div className={classNames('flex items-center')}>
               Contact me
-              <RightIcon />
+              <RightIcon className="stroke-white" />
             </div>
           </Button>
         </div>

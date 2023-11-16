@@ -1,14 +1,15 @@
 import { useRef } from 'react';
 
-const setting = {
-  behavior: 'smooth',
-};
-
 const useScroll = () => {
   const htmlElRef = useRef(null);
 
   const scroll = () => {
-    htmlElRef.current && htmlElRef.current.scrollIntoView(setting);
+    const setting = {
+      top: htmlElRef.current.offsetTop,
+      behavior: 'smooth',
+    };
+
+    htmlElRef.current && window.scrollTo(setting);
   }
 
   return [htmlElRef, scroll];
