@@ -84,6 +84,8 @@ export default function HomeApp(props) {
     setMenu(1);
   };
 
+  const lightDarkCss = 'stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary';
+
   return (
     <>
       <Head>
@@ -97,48 +99,45 @@ export default function HomeApp(props) {
       </div>
       <div className="hidden fixed left-5 bottom-12 z-50 cursor-pointer w-11 h-11 justify-center items-center md:flex md:bottom-14">
         {darkThemeMode ? (
-          <DarkModeIcon
-            className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary"
-            onClick={() => toggleThemeMode()}
-          />
+          <DarkModeIcon className={lightDarkCss} onClick={() => toggleThemeMode()} />
         ) : (
-          <LightModeIcon
-            className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary"
-            onClick={() => toggleThemeMode()}
-          />
+          <LightModeIcon className={lightDarkCss} onClick={() => toggleThemeMode()} />
         )}
       </div>
       <main className="bg-gray-100 dark:bg-darkest-grey z-0 transition-all duration-500 transform px-2 md:px-10">
         <DesktopNavBar />
-        <section ref={homeRef} className="min-h-[calc(100vh)] mb-10 md:pt-14 flex justify-center items-center">
+        <section
+          ref={homeRef}
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 flex justify-center md:items-center"
+        >
           <HomePage ref={homeViewRef}/>
         </section>
 
-        <section ref={aboutMeRef} className="min-h-[calc(100vh)] mb-10 md:pt-14 flex justify-center items-center">
+        <section ref={aboutMeRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 flex justify-center md:items-center">
           <AboutMePage ref={aboutMeViewRef}/>
         </section>
 
-        <section ref={skillsRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={skillsRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14">
           <SkillsPage ref={skillsViewRef}/>
         </section>
 
-        <section ref={experienceRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={experienceRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 md:items-center">
           <ExperiencePage ref={experienceViewRef}/>
         </section>
 
-        <section ref={educationRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={educationRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14">
           <EducationPage ref={educationViewRef}/>
         </section>
 
-        <section ref={abilityRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={abilityRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14">
           <AbilityPage ref={abilityViewRef}/>
         </section>
 
-        <section ref={projectsRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={projectsRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14">
           <ProjectsPage ref={projectsViewRef}/>
         </section>
 
-        <section ref={contactMeRef} className="min-h-[calc(100vh)] mb-10 md:pt-14">
+        <section ref={contactMeRef} className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14">
           <ContactMePage
             ref={contactMeViewRef}
             contactNo={contactNo}
