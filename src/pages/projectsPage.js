@@ -1,4 +1,4 @@
-import { useState, forwardRef } from 'react';
+import { useState, useContext, forwardRef } from 'react';
 import classNames from 'classnames';
 import Modal from 'react-modal';
 
@@ -10,6 +10,8 @@ import Button from '@/components/button';
 import Divider from '@/components/divider';
 import Card from '@/components/card';
 import useNavigation from '@/hooks/useNavigation';
+
+import ThemeModeContext from '@/contexts/ThemeModeContext';
 
 const PROJECT_LIST = [
   {
@@ -46,6 +48,7 @@ const Projects = (_, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const { darkThemeMode } = useContext(ThemeModeContext);
   const isMobileView = useNavigation();
 
   const openModal = (projectId) => {
@@ -64,6 +67,10 @@ const Projects = (_, ref) => {
       bottom: '50px',
       left: '20px',
       right: '20px',
+      backgroundColor: darkThemeMode ? '#656565' : '#ffffff',
+    },
+    overlay: {
+      zIndex: 100,
     },
   };
 

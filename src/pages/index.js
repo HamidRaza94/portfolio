@@ -84,6 +84,12 @@ export default function HomeApp(props) {
     setMenu(1);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      scrollToHome();
+    }
+  };
+
   const lightDarkCss = 'stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary';
 
   return (
@@ -94,7 +100,7 @@ export default function HomeApp(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="fixed bottom-14 inset-x-2/4 z-10 cursor-pointer md:left-5 md:bottom-4" onClick={scrollToHome}>
+      <div className="fixed bottom-14 left-2/4 z-10 cursor-pointer -ml-3 md:ml-0 md:left-5 md:bottom-4" onClick={scrollToHome}  onKeyDown={handleKeyDown}>
         <UpIcon className="stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary opacity-25 hover:opacity-100 md:opacity-100" />
       </div>
       <div className="hidden fixed left-5 bottom-12 z-50 cursor-pointer w-11 h-11 justify-center items-center md:flex md:bottom-14">
