@@ -28,6 +28,9 @@ module.exports = {
       animation: {
         blinkingBg: 'blinkingBg 1s ease-in-out infinite',
       },
+      spacing: {
+        '22px': '22px',
+      },
     },
   },
   plugins: [],
