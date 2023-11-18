@@ -7,9 +7,10 @@ import Menu from '@/components/menu';
 import useNavigation from '@/hooks/useNavigation';
 
 import ThemeModeContext from '@/contexts/ThemeModeContext';
-import LightModeIcon from '@/assets/icons/light-mode.svg';
-import DarkModeIcon from '@/assets/icons/dark-mode.svg';
-import AppIcon from '@/assets/icons/apps.svg';
+import LightModeIcon from '@/assets/icons/new/son.svg';
+import DarkModeIcon from '@/assets/icons/new/moon.svg';
+import AppIcon from '@/assets/icons/new/app.svg';
+import CrossFilledIcon from '@/assets/icons/new/cross-filled.svg';
 
 const MobileNavBar = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -19,6 +20,8 @@ const MobileNavBar = () => {
   if (!isMobileView || isMobileView === null) {
     return null;
   }
+
+  const lightDarkCss = 'stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary';
 
   return (
     <nav className="z-20">
@@ -33,11 +36,15 @@ const MobileNavBar = () => {
         <div className={classNames('flex justify-center')}>
           {lightThemeMode ? (
             <div style={{ width: 24, height: 24 }}>
-              <LightModeIcon onClick={() => toggleThemeMode()} />
+              <LightModeIcon className={lightDarkCss} onClick={() => toggleThemeMode()} />
             </div>
-          ) : <DarkModeIcon onClick={() => toggleThemeMode()} />}
+          ) : <DarkModeIcon className={lightDarkCss} onClick={() => toggleThemeMode()} />}
           <div className={classNames('ml-2')}>
-            <AppIcon onClick={() => setMenuOpened(!menuOpened)} />
+            {menuOpened ? (
+              <CrossFilledIcon onClick={() => setMenuOpened(false)} />
+            ) : (
+              <AppIcon onClick={() => setMenuOpened(true)} />
+            )}
           </div>
         </div>
       </div>
