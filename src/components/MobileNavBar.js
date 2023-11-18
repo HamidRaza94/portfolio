@@ -43,7 +43,7 @@ const MobileNavBar = () => {
             {menuOpened ? (
               <CrossFilledIcon onClick={() => setMenuOpened(false)} />
             ) : (
-              <AppIcon onClick={() => setMenuOpened(true)} />
+              <AppIcon className={lightDarkCss} onClick={() => setMenuOpened(true)} />
             )}
           </div>
         </div>
