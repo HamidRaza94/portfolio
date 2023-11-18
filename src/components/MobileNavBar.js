@@ -21,7 +21,7 @@ const MobileNavBar = () => {
     return null;
   }
 
-  const lightDarkCss = 'stroke-dark-grey dark:stroke-gray-300 hover:stroke-primary dark:hover:stroke-primary';
+  const lightDarkCss = 'stroke-dark-grey dark:stroke-gray-300';
 
   return (
     <nav className="z-20">
