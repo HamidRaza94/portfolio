@@ -214,4 +214,6 @@ ContactMe.propTypes = {
   emailAddress: PropTypes.string.isRequired,
 };
 
+ContactMe.displayName = 'ContactMe';
+
 export default forwardRef(ContactMe);

@@ -19,6 +19,12 @@ const DesktopNavBar = () => {
     setMenu(id);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      scrollToHome();
+    }
+  };
+
   if (isMobileView || isMobileView === null) {
     return null;
   }
@@ -44,6 +50,7 @@ const DesktopNavBar = () => {
                 'dark:text-white',
               )}
               onClick={() => handleClick(id)}
+              onKeyDown={handleKeyDown}
             >
               {Icon}
               <label className="cursor-pointer">{label}</label>

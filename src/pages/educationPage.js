@@ -54,4 +54,6 @@ const Education = (_, ref) => {
   );
 }
 
+Education.displayName = 'Education';
+
 export default forwardRef(Education);

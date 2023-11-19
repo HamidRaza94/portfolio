@@ -66,4 +66,6 @@ const AboutMe = (_, ref) => {
   );
 }
 
+AboutMe.displayName = 'AboutMe';
+
 export default forwardRef(AboutMe);

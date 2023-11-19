@@ -30,4 +30,6 @@ const Ability = (_, ref) => {
   );
 }
 
+Ability.displayName = 'Ability';
+
 export default forwardRef(Ability);

@@ -49,4 +49,6 @@ const Home = (_, ref) => {
   );
 }
 
+Home.displayName = 'Home';
+
 export default forwardRef(Home);

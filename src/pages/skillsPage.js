@@ -180,4 +180,6 @@ const Skills = (_, ref) => {
   );
 }
 
+Skills.displayName = 'Skills';
+
 export default forwardRef(Skills);

@@ -280,4 +280,6 @@ const Experience = (_, ref) => {
   );
 }
 
+Experience.displayName = 'Experience';
+
 export default forwardRef(Experience);

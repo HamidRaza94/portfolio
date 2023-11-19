@@ -158,4 +158,6 @@ const Projects = (_, ref) => {
   );
 }
 
+Projects.displayName = 'Projects';
+
 export default forwardRef(Projects);

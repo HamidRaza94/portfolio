@@ -5,6 +5,7 @@ import {
   useMemo,
   useEffect,
 } from 'react';
+import PropTypes from 'prop-types';
 
 import SectionRefContext from '@/contexts/SectionRefContext';
 
@@ -39,7 +40,7 @@ const MenuProvider = (props) => {
 
     if (menuClicked) {
       mapping[menu || 1]();
-      setMenuClicked(false);
+      // setMenuClicked(false);
     }
   }, [
     menu,
@@ -66,6 +67,10 @@ const MenuProvider = (props) => {
       {props.children}
     </MenuContext.Provider>
   );
+};
+
+MenuProvider.propTypes = {
+  children: PropTypes.any,
 };
 
 export default MenuContext;
