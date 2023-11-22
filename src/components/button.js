@@ -15,7 +15,7 @@ const Button = (props) => {
     ...rest
   } = props;
 
-  let backgroundColor = 'bg-primary';
+  let backgroundColor = 'bg-primary hover:bg-dark-primary';
 
   if (isLoading) {
     backgroundColor = 'bg-light-primary';

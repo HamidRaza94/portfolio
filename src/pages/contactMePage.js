@@ -2,6 +2,7 @@ import { useState, useContext, forwardRef } from 'react';
 import Link from 'next/link'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Modal from 'react-modal';
 
 import PageHeading from '@/components/pageHeading';
 import TextInput from '@/components/textInput';
@@ -23,6 +24,7 @@ import FacebookIcon from '@/assets/icons/facebook.svg';
 import InstagramIcon from '@/assets/icons/instagram.svg';
 import TwitterIcon from '@/assets/icons/twitter.svg';
 import ContactUsGallery from '@/assets/icons/contact-us-gallery.svg';
+import CheckFilledIcon from '@/assets/icons/new/circle-check-filled.svg';
 
 const defaultError = { name: '', email: '', query: '' };
 
@@ -35,8 +37,9 @@ const ContactMe = (props, ref) => {
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState(defaultError);
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const { themeMode } = useContext(ThemeModeContext);
+  const { themeMode, darkThemeMode } = useContext(ThemeModeContext);
   const isMobileView = useNavigation();
 
   const { light } = THEME_MODES;
@@ -117,13 +120,37 @@ const ContactMe = (props, ref) => {
       const response = await fetch(url);
 
       if (response.ok) {
-        resetFields();
+        setIsOpen(true);
       }
     } catch (err) {
       console.error('ERROR : SENDING EMAIL : ', err);
     } finally {
       setIsSending(false);
     }
+  };
+
+  const closeModal = () => {
+    resetFields();
+    setIsOpen(false);
+  };
+
+  const customStyles = {
+    content: {
+      position: isMobileView ? 'absolute' : 'static',
+      width: isMobileView ? '' : '500px',
+      height: isMobileView ? '' : '500px',
+      top: isMobileView ? '50px' : '',
+      bottom: isMobileView ? '50px' : '',
+      left: isMobileView ? '20px' : '',
+      right: isMobileView ? '20px' : '',
+      backgroundColor: darkThemeMode ? '#656565' : '#ffffff',
+    },
+    overlay: {
+      zIndex: 100,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   };
 
   return (
@@ -205,6 +232,33 @@ const ContactMe = (props, ref) => {
         </div>
       </div>
 
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Project Description"
+      >
+        <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col h-full">
+            <div className="flex flex-col justify-center items-center">
+              <CheckFilledIcon className="w-24 h-24 fill-primary animate-zoom" />
+              <h3>Dear {name},</h3>
+              <h3>Your message is successfully sent</h3>
+              <h3>I&apos;ll contact you soon</h3>
+            </div>
+            <div className="mt-10 bg-gray-100 rounded-sm p-1">
+              <h3><span className="font-medium">Your Email ID:</span> {email}</h3>
+              <h3><span className="font-medium">Your Query:</span> {query}</h3>
+            </div>
+          </div>
+
+          <div className="flex justify-end">
+            <Button onClick={closeModal} primary noPadding css="py-1 px-5">
+              OK
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

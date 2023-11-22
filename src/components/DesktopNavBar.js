@@ -45,7 +45,7 @@ const DesktopNavBar = () => {
             <div
               key={id}
               className={classNames(
-                'group flex items-center p-1 ml-1 rounded-lg cursor-pointer hover:text-white hover:bg-primary',
+                'group flex items-center p-1 ml-3 rounded-lg cursor-pointer hover:text-white hover:bg-primary',
                 { 'text-white': menu === id, 'bg-primary': menu === id },
                 'dark:text-white',
               )}
