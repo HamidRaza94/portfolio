@@ -8,6 +8,7 @@ import DesktopNavBar from '@/components/DesktopNavBar';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import SectionRefContext from '@/contexts/SectionRefContext';
 import MenuContext from '@/contexts/MenuContext';
+import useCalculateMargin from '@/hooks/useCalculateMargin';
 
 import HomePage from './homePage';
 import AboutMePage from './aboutMePage';
@@ -26,6 +27,7 @@ export default function HomeApp(props) {
   const { contactNo, emailAddress } = props;
 
   const { darkThemeMode, toggleThemeMode } = useContext(ThemeModeContext);
+  const { menu, setMenu, menuClicked, setMenuClicked } = useContext(MenuContext);
   const {
     homeRef,
     aboutMeRef,
@@ -36,7 +38,14 @@ export default function HomeApp(props) {
     projectsRef,
     contactMeRef,
   } = useContext(SectionRefContext);
-  const { menu, setMenu, menuClicked, setMenuClicked } = useContext(MenuContext);
+
+  const homeAboutMargin = useCalculateMargin(homeRef, aboutMeRef);
+  const aboutSkillsMargin = useCalculateMargin(aboutMeRef, skillsRef);
+  const skillsExperienceMargin = useCalculateMargin(skillsRef, experienceRef);
+  const experienceEducationMargin = useCalculateMargin(experienceRef, educationRef);
+  const educationAbilityMargin = useCalculateMargin(educationRef, abilityRef);
+  const abilityProjectsMargin = useCalculateMargin(abilityRef, projectsRef);
+  const projectsContactMargin = useCalculateMargin(projectsRef, contactMeRef);
 
   const [homeViewRef, homeInView] = useInView();
   const [aboutMeViewRef, aboutMeInView] = useInView();
@@ -125,56 +134,63 @@ export default function HomeApp(props) {
         <DesktopNavBar />
         <section
           ref={homeRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 flex justify-center md:items-center"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14 flex justify-center md:items-center"
+          style={{ marginBottom: homeAboutMargin }}
         >
           <HomePage ref={homeViewRef}/>
         </section>
 
         <section
           ref={aboutMeRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 flex justify-center md:items-center"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14 flex justify-center md:items-center"
+          style={{ marginBottom: aboutSkillsMargin }}
         >
           <AboutMePage ref={aboutMeViewRef}/>
         </section>
 
         <section
           ref={skillsRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14"
+          style={{ marginBottom: skillsExperienceMargin }}
         >
           <SkillsPage ref={skillsViewRef}/>
         </section>
 
         <section
           ref={experienceRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14 md:items-center"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14 md:items-center"
+          style={{ marginBottom: experienceEducationMargin }}
         >
           <ExperiencePage ref={experienceViewRef}/>
         </section>
 
         <section
           ref={educationRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14"
+          style={{ marginBottom: educationAbilityMargin }}
         >
           <EducationPage ref={educationViewRef}/>
         </section>
 
         <section
           ref={abilityRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14"
+          style={{ marginBottom: abilityProjectsMargin }}
         >
           <AbilityPage ref={abilityViewRef}/>
         </section>
 
         <section
           ref={projectsRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14"
+          style={{ marginBottom: projectsContactMargin }}
         >
           <ProjectsPage ref={projectsViewRef}/>
         </section>
 
         <section
           ref={contactMeRef}
-          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 mb-10 md:pt-14"
+          className="min-h-[calc(100vh)] md:min-h-[calc(100vh-56px)] pt-2 md:pt-14"
         >
           <ContactMePage
             ref={contactMeViewRef}
