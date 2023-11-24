@@ -20,10 +20,8 @@ const Home = (_, ref) => {
       <div className={classNames('self-center md:mx-10')}>
         <Image
           src={MyPhoto}
-          width={200}
-          height={200}
           alt="Picture of the author"
-          className={classNames('w-48 h-52 dp-home')}
+          className="w-48 h-52 dp-home"
         />
         <br />
       </div>
@@ -40,7 +38,7 @@ const Home = (_, ref) => {
           <Button primary onClick={handleClick}>
             <div className={classNames('flex items-center')}>
               Contact me
-              <RightIcon className="stroke-white" />
+              <RightIcon className="stroke-white group-hover:animate-slide-right" />
             </div>
           </Button>
         </div>

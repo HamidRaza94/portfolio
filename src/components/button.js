@@ -24,7 +24,7 @@ const Button = (props) => {
   return (
     <button
       className={classNames(
-        'rounded-lg flex justify-center items-center',
+        'rounded-lg flex justify-center items-center group',
         noPadding ? 'p-0' : 'p-4',
         backgroundColor,
         { 'text-white': primary, 'w-full': isFullWidth },

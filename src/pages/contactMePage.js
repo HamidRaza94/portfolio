@@ -11,13 +11,14 @@ import Button from '@/components/button';
 import Label from '@/components/label';
 import Spacer from '@/components/spacer';
 
+import MailIcon from '@/components/icon/mail';
+import PhoneIcon from '@/components/icon/phone';
+
 import { THEME_MODES, URLS } from '@/utils/constants';
 import ThemeModeContext from '@/contexts/ThemeModeContext';
 import { isValidName, isValidEmail } from '@/utils/helper';
 import useNavigation from '@/hooks/useNavigation';
 
-import PhoneCallIcon from '@/assets/icons/phone-call.svg';
-import AtSignIcon from '@/assets/icons/at-sign.svg';
 import GitHubIcon from '@/assets/icons/github.svg';
 import LinkedInIcon from '@/assets/icons/linkedin.svg';
 import FacebookIcon from '@/assets/icons/facebook.svg';
@@ -165,14 +166,14 @@ const ContactMe = (props, ref) => {
         )}
         <div className="flex flex-col w-full md:w-7/12 md:min-w-96">
           <div className="flex justify-around my-7">
-            <Link href={`tel:${contactNo}`} className="flex flex-col justify-center items-center">
-              <PhoneCallIcon fill={isLightTheme ? '': 'white'} />
+            <Link href={`tel:${contactNo}`} className="flex flex-col justify-center items-center group">
+              <PhoneIcon size={36} variant="filled" animate />
               <Spacer size={10} axis="vertical" />
               <Label text={contactNo} isBold />
             </Link>
 
-            <Link href={`mailto:${emailAddress}`} className="flex flex-col justify-center items-center">
-              <AtSignIcon color={isLightTheme ? '': 'white'} />
+            <Link href={`mailto:${emailAddress}`} className="flex flex-col justify-center items-center group">
+              <MailIcon size={36} variant="filled" animate />
               <Spacer size={10} axis="vertical" />
               <Label text={emailAddress} isBold />
             </Link>

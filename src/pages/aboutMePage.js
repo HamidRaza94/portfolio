@@ -3,6 +3,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import Button from '@/components/button';
+import DownloadIcon from '@/components/icon/download';
 
 import MyPhoto from '@/assets/images/myPhoto/dp1.jpg';
 
@@ -11,7 +12,6 @@ import LinkedInIcon from '@/assets/icons/linkedin.svg';
 import FacebookIcon from '@/assets/icons/facebook.svg';
 import InstagramIcon from '@/assets/icons/instagram.svg';
 import TwitterIcon from '@/assets/icons/twitter.svg';
-import DownloadIcon from '@/assets/icons/new/download.svg';
 
 const AboutMe = (_, ref) => {
   return (
@@ -30,10 +30,8 @@ const AboutMe = (_, ref) => {
         </div>
         <Image
           src={MyPhoto}
-          width={200}
-          height={200}
           alt="Picture of the author"
-          className={classNames('w-48 h-52 dp-about-me')}
+          className="w-48 h-52 dp-about-me"
         />
       </div>
 
@@ -49,7 +47,7 @@ const AboutMe = (_, ref) => {
             <Button primary noPadding css="p-1.5">
               <div className={classNames('flex items-center')}>
                 Get Resume&nbsp;
-                <DownloadIcon className="stroke-white" />
+                <DownloadIcon animate />
               </div>
             </Button>
           </a>
