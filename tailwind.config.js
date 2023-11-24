@@ -60,6 +60,26 @@ module.exports = {
             transform: 'rotate(-5deg)',
           },
         },
+        blink: {
+          '0%': {
+            opacity: 0,
+            transform: 'translate(0, 0)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translate(1px, 1px)',
+          },
+        },
+        'reverse-blink': {
+          '0%': {
+            opacity: 1,
+            transform: 'translate(0, 0)',
+          },
+          '100%': {
+            opacity: 0,
+            transform: 'translate(1px, 1px)',
+          },
+        },
       },
       animation: {
         blinkingBg: 'blinkingBg 1s ease-in-out infinite',
@@ -68,6 +88,8 @@ module.exports = {
         'slide-down': 'slide-down 1.5s ease-in-out infinite',
         vibrate: 'vibrate 1s ease-in-out infinite',
         'rotate-up': 'rotate-up 1s ease-in-out infinite',
+        blink: 'blink 1s ease-in-out infinite',
+        'reverse-blink': 'reverse-blink 1s ease-in-out infinite',
       },
       spacing: {
         '22px': '22px',
