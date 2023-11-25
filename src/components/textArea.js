@@ -8,6 +8,7 @@ const TextArea = (props) => {
   const { name, label, value, error, onChange, handleValidation, isSubmitClicked, ...rest } = props;
 
   const [isFocused, setFocused] = useState(false);
+  const [isTouchedOnce, setIsTouchedOnce] = useState(false);
   const textAreaRef = useRef(null);
 
   useAutosizeTextArea(textAreaRef.current, value);
@@ -39,8 +40,14 @@ const TextArea = (props) => {
         onBlur={() => {
           setFocused(false);
           handleValidation();
+          setIsTouchedOnce(true);
         }}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          onChange(e.target.value);
+          if (isTouchedOnce) {
+            handleValidation(e.target.value);
+          }
+        }}
         ref={textAreaRef}
         className={classNames(
           'text-blueGray-600 relative text-sm border-0 outline-none focus:outline-none w-full border-b overflow-hidden resize-none bg-transparent',

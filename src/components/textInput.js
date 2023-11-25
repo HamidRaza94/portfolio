@@ -6,6 +6,7 @@ const TextInput = (props) => {
   const { name, label, value, error, onChange, handleValidation, isSubmitClicked, ...rest } = props;
 
   const [isFocused, setFocused] = useState(false);
+  const [isTouchedOnce, setIsTouchedOnce] = useState(false);
 
   let labelFocusedColor = '';
   let textInputFocusedColor = '';
@@ -30,8 +31,14 @@ const TextInput = (props) => {
         onBlur={() => {
           setFocused(false);
           handleValidation();
+          setIsTouchedOnce(true);
         }}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          onChange(e.target.value);
+          if (isTouchedOnce) {
+            handleValidation(e.target.value);
+          }
+        }}
         className={classNames(
           'text-blueGray-600 relative text-sm border-0 outline-none focus:outline-none w-full border-b bg-transparent',
           textInputFocusedColor,

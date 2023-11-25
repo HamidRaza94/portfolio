@@ -56,42 +56,48 @@ const ContactMe = (props, ref) => {
     setQuery('');
   };
 
-  const validateNameFields = () => {
-    if (!name) {
+  const validateNameFields = (newName) => {
+    const currentName = newName ? newName : name;
+
+    if (!currentName) {
       return 'Name field is mandatory';
-    } else if (name.length <= 3) {
+    } else if (currentName.length < 3) {
       return 'Name field should not be less than 3 characters';
-    } else if (!isValidName(name)) {
+    } else if (!isValidName(currentName)) {
       return 'Name field is not valid';
     }
 
     return '';
   };
 
-  const validateEmailFields = () => {
-    if (!email) {
+  const validateEmailFields = (newEmail) => {
+    const currentEmail = newEmail ? newEmail : email;
+
+    if (!currentEmail) {
       return 'Email field is mandatory';
-    } else if (!isValidEmail(email)) {
+    } else if (!isValidEmail(currentEmail)) {
       return 'Email field is not valid';
     }
 
     return '';
   };
 
-  const validateQueryFields = () => {
-    if (!query) {
+  const validateQueryFields = (newQuery) => {
+    const currentQuery = newQuery ? newQuery : query;
+
+    if (!currentQuery) {
       return 'Query field is mandatory';
-    } else if (query.length <= 3) {
-      return 'Query field should not be less than 3 characters';
+    } else if (currentQuery.length <= 4) {
+      return 'Query field should not be less than 5 characters';
     }
 
     return '';
   };
 
-  const validateFields = ({ nameValidation = false, emailValidation = false, queryValidation = false }) => {
-    const nameError = nameValidation ? validateNameFields() : error.name;
-    const emailError = emailValidation ? validateEmailFields() : error.email;
-    const queryError = queryValidation ? validateQueryFields() : error.query;
+  const validateFields = ({ nameValidation = false, emailValidation = false, queryValidation = false }, newValue) => {
+    const nameError = nameValidation ? validateNameFields(newValue) : error.name;
+    const emailError = emailValidation ? validateEmailFields(newValue) : error.email;
+    const queryError = queryValidation ? validateQueryFields(newValue) : error.query;
 
     setError({ name: nameError, email: emailError, query: queryError });
 
@@ -185,7 +191,7 @@ const ContactMe = (props, ref) => {
               value={name}
               error={error.name}
               onChange={handleNameChange}
-              handleValidation={() => validateFields({ nameValidation: true })}
+              handleValidation={(newName) => validateFields({ nameValidation: true }, newName)}
               isSubmitClicked={isSubmitClicked}
             />
 
@@ -195,7 +201,7 @@ const ContactMe = (props, ref) => {
               value={email}
               error={error.email}
               onChange={handleEmailChange}
-              handleValidation={() => validateFields({ emailValidation: true })}
+              handleValidation={(newEmail) => validateFields({ emailValidation: true }, newEmail)}
               isSubmitClicked={isSubmitClicked}
             />
 
@@ -205,7 +211,7 @@ const ContactMe = (props, ref) => {
               value={query}
               error={error.query}
               onChange={handleQueryChange}
-              handleValidation={() => validateFields({ queryValidation: true })}
+              handleValidation={(newQuery) => validateFields({ queryValidation: true }, newQuery)}
               isSubmitClicked={isSubmitClicked}
             />
 
@@ -221,14 +227,14 @@ const ContactMe = (props, ref) => {
           </form>
           <div className="flex justify-around mt-4 mb-24 md:mb-14">
             <a href="https://github.com/HamidRaza94" target='_blank'>
-              <GitHubIcon className={classNames('dark:text-white dark:fill-white')} />
+              <GitHubIcon className={classNames('dark:text-white dark:fill-white hover:stroke-primary hover:fill-primary')} />
             </a>
             <a href="https://www.linkedin.com/in/mohammad-hamid-raza-4b6a82152" target='_blank'>
-              <LinkedInIcon className={classNames('dark:text-white dark:fill-white')} />
+              <LinkedInIcon className={classNames('dark:text-white dark:fill-white hover:fill-primary')} />
             </a>
-            <FacebookIcon className={classNames('dark:text-white dark:fill-white')} />
-            <InstagramIcon className={classNames('dark:text-white dark:fill-white')} />
-            <TwitterIcon className={classNames('dark:text-white dark:fill-white')} />
+            <FacebookIcon className={classNames('dark:text-white dark:fill-white hover:fill-primary')} />
+            <InstagramIcon className={classNames('dark:text-white dark:fill-white hover:fill-primary')} />
+            <TwitterIcon className={classNames('dark:text-white dark:fill-white hover:fill-primary')} />
           </div>
         </div>
       </div>
